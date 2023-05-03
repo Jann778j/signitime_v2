@@ -1,0 +1,20 @@
+//------------------------------------------------------------------------------
+// SIGN IN FORM
+//------------------------------------------------------------------------------
+
+.form-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.signin-form {
+  border: 1px solid black;
+}

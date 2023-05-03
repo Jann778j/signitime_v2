@@ -1,5 +1,3 @@
-//React
-// import React, { useState } from "react";
 import Head from "next/head";
 
 //takes children meaning that it takes content from our pages

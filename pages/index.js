@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SignIn from "@/components/SignIn";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -17,34 +18,23 @@ export default function LoginPage() {
     setLoggedIn(false);
   };
 
-  if (loggedIn) {
-    return (
-      <div>
-        <h1>You are logged in!</h1>
-        <button onClick={handleLogout}>Logout</button>
-      </div>
-    );
-  }
+  // if (loggedIn) {
+  //   return (
+  //     <div>
+  //       <h1>You are logged in!</h1>
+  //       <button onClick={handleLogout}>Logout</button>
+  //     </div>
+  //   );
+  // }
 
   return (
-    <form onSubmit={handleLogin}>
-      <label>
-        Email
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </label>
-      <button type="submit">Login</button>
-    </form>
+    <SignIn
+      setPassword={setPassword}
+      setEmail={setEmail}
+      setLoggedIn={setLoggedIn}
+      email={email}
+      password={password}
+      loggedIn={loggedIn}
+    />
   );
 }
