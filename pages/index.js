@@ -34,7 +34,6 @@ export default function LoginPage() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Perform validation here and check credentials with a database or API
     users.forEach((user) => {
       if (email === user.email && password === user.password) {
         setLoggedIn(true);
