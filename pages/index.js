@@ -5,6 +5,7 @@ import LoggedIn from "@/components/LoggedIn";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [users, setUsers] = useState([]);
+  const [user, setUser] = useState({});
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -37,21 +38,16 @@ export default function LoginPage() {
     users.forEach((user) => {
       if (email === user.email && password === user.password) {
         setLoggedIn(true);
+        setUser(user);
+        console.log(user);
       }
     });
-    // if (email === "hej@hej.com" && password === "hej") {
-    //   setLoggedIn(true);
-    // }
   };
-
-  if (loggedIn) {
-    console.log("Logged in");
-  }
 
   return (
     <>
       {loggedIn ? (
-        <LoggedIn />
+        <LoggedIn user={user} />
       ) : (
         <SignIn
           setPassword={setPassword}

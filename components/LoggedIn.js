@@ -4,7 +4,7 @@ export default function LoggedIn(props) {
   return (
     <>
       <div>
-        <h1>You are logged in!</h1>
+        <h1>Hello {props.user.first_name}, You are logged in!</h1>
         {/* <button onClick={handleLogout}>Logout</button> */}
       </div>
     </>
