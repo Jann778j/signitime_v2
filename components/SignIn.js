@@ -10,7 +10,9 @@ export default function SignIn(props) {
   return (
     <>
       <div className="form-wrapper">
-        <div className="logo">SIGNITIME</div>
+        <div className="logo">
+          <img src="logo.svg"></img>
+        </div>
         <form className="signin-form" onSubmit={props.handleLogin}>
           <label>
             Email
@@ -30,7 +32,13 @@ export default function SignIn(props) {
               onChange={(e) => props.setPassword(e.target.value)}
             />
           </label>
-          <button type="submit">Login</button>
+          <button
+            onClick={props.handleLogin}
+            className="signin-btn rounded-corners"
+            type="submit"
+          >
+            Sign in
+          </button>
         </form>
       </div>
     </>

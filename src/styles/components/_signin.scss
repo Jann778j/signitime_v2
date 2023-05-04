@@ -15,6 +15,27 @@
   left: 0;
 }
 
+.signin-form,
+input {
+  border: 1px solid $color-black;
+}
+
 .signin-form {
-  border: 1px solid black;
+  padding: 40px;
+}
+.logo {
+  margin-right: 20px;
+}
+input {
+  margin-bottom: 20px;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.signin-btn {
+  background-color: $color-black;
+  color: $color-white;
+  border: none;
+  width: 100%;
+  padding: 10px;
 }
