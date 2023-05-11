@@ -14,6 +14,7 @@ export default function LoggedIn(props) {
           `);
       setClients(data);
     }
+
     getData();
   }, []);
 
