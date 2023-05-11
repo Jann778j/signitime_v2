@@ -8,7 +8,7 @@ export default function SignIn(props) {
   // };
 
   return (
-    <>
+    <div className="signin">
       <div className="form-wrapper">
         <div className="logo">
           <img src="logo.svg"></img>
@@ -41,6 +41,6 @@ export default function SignIn(props) {
           </button>
         </form>
       </div>
-    </>
+    </div>
   );
 }

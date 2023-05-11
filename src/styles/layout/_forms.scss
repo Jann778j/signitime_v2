@@ -2,10 +2,25 @@
 // FORMS
 //------------------------------------------------------------------------------
 
+.form-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.fig {
+  color: $color-grey;
+}
+
 //------------------------------------------------------------------------------
 // General input styling
 
 .rounded-corners {
   border-radius: 200px;
   display: block;
+  padding: 10px;
+}
+
+input {
+  width: 100%;
 }

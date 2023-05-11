@@ -1,0 +1,84 @@
+//------------------------------------------------------------------------------
+// LOGGED IN
+//------------------------------------------------------------------------------
+
+h1 {
+  margin-bottom: 5%;
+}
+
+.title:not(.comment-title) {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+
+  &.comment-title {
+    padding-left: 0;
+  }
+}
+
+//------------------------------------------------------------------------------
+// Dropdown
+
+.dropdown,
+.hours {
+  border: 1px solid $color-grey;
+  margin-top: -1px;
+  width: 100%;
+  height: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content-container {
+  position: absolute;
+  background-color: $color-white;
+  z-index: 2;
+  width: 100%;
+}
+.dropdown-content {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: $color-white;
+  // position: absolute;
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+//------------------------------------------------------------------------------
+// Input fields
+
+.hours,
+.comment-title,
+.counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input[type="number"] {
+  border: none;
+  text-align: center;
+  width: 60px;
+  margin: 0;
+  padding: 0;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.plus,
+.minus {
+  padding-right: 10px;
+  padding-left: 10px;
+  cursor: pointer;
+}

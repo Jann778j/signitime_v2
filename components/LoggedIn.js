@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
+import { format } from "date-fns";
+
+import FieldClient from "./FieldClient";
+import FieldClientProjects from "./FieldClientProjects";
+import FieldHours from "./FieldHours";
+import FieldComment from "./FieldComment";
 
 export default function LoggedIn(props) {
   const [clients, setClients] = useState([]);
   const [projects, setProjects] = useState([]);
   const [choosenClient, setChoosenClient] = useState([]);
   const [choosenProject, setChoosenProject] = useState([]);
-  // const [clientProjects, setClientProjects] = useState([]);
+  const [hours, setHours] = useState(0);
+  const [notes, setNotes] = useState("");
 
   useEffect(() => {
     async function getData() {
@@ -33,46 +40,38 @@ export default function LoggedIn(props) {
     getData();
   }, []);
 
-  const existingProjects = projects.filter(
-    (project) => project.client_id === choosenClient.client_id
-  );
+  // console.log(format(new Date(), "MMM"));
+  // const month = format(new Date(), "MMM");
+  const day = format(new Date(), "Do MMM");
+  console.log(day);
 
   return (
     <>
       <div>
-        <h1>Hello {props.user.first_name}, you are logged in!</h1>
-        <div className="dropdown">
-          <div className="dropdown-title title">
-            {choosenClient.length === 0 ? "1. Add client" : choosenClient.name}
+        <h1>
+          Hello {props.user.first_name}, <br />
+          today's {day}
+        </h1>
+        <div className="form-wrapper">
+          <div>
+            <FieldClient
+              clients={clients}
+              choosenClient={choosenClient}
+              setChoosenClient={setChoosenClient}
+            />
+            <FieldClientProjects
+              choosenClient={choosenClient}
+              choosenProject={choosenProject}
+              projects={projects}
+              setChoosenProject={setChoosenProject}
+            />
+            <FieldHours hours={hours} setHours={setHours} />
           </div>
-          {clients.map((client) => (
-            <div
-              className="dropdown-content"
-              onClick={() => setChoosenClient(client)}
-              key={client.client_id}
-            >
-              {client.name}
-            </div>
-          ))}
-        </div>
-        <div className="dropdown">
-          <div className="dropdown-title title">
-            {choosenProject.length === 0
-              ? "2. Add project"
-              : choosenProject.name}
-          </div>
-          {existingProjects.map((clientProject) => (
-            <div
-              key={clientProject.client_id}
-              onClick={() => setChoosenProject(clientProject)}
-              className="dropdown-content"
-            >
-              {clientProject.name}
-            </div>
-          ))}
+          <FieldComment notes={notes} setNotes={setNotes} />
         </div>
         {/* <button onClick={handleLogout}>Logout</button> */}
       </div>
+      <button className="submit rounded-corners">Submit</button>
     </>
   );
 }

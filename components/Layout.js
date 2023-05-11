@@ -12,10 +12,12 @@ export default function Layout(props) {
   return (
     <>
       <Head>
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+        <meta name="robots" content="noindex" />
         <title>SigniTime</title>
       </Head>
       <header>
-        <div className="logo">SigniTime</div>
+        <img src="logo.svg" className="logo" />
       </header>
       <main>{props.children}</main>
       <footer className="footer"></footer>
