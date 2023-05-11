@@ -3,14 +3,16 @@ import { useEffect, useState } from "react";
 export default function LoggedIn(props) {
   const [clients, setClients] = useState([]);
   const [projects, setProjects] = useState([]);
-  const [clientProjects, setClientProjects] = useState([]);
+  const [choosenClient, setChoosenClient] = useState([]);
+  const [choosenProject, setChoosenProject] = useState([]);
   // const [clientProjects, setClientProjects] = useState([]);
 
   useEffect(() => {
     async function getData() {
       const { data, error } = await props.supabase.from("signitime-clients")
         .select(`
-          name
+          name, 
+          client_id
           `);
       setClients(data);
     }
@@ -22,46 +24,31 @@ export default function LoggedIn(props) {
     async function getData() {
       const { data, error } = await props.supabase.from("signitime-projects")
         .select(`
-          name
+          name, 
+          client_id, 
+          project_id
           `);
       setProjects(data);
-      // console.log(data);
     }
     getData();
   }, []);
 
-  // console.log(projects);
-  // const displayClientProjects = () => {
-  //   const clientProjects = projects;
-
-  //   clients.forEach((client) => {
-  //     projects.forEach((project) => {
-  //       const exists = client.client_id == project.client_id;
-
-  //       if (exists) {
-  //         clientProjects.name = project.name;
-  //       }
-  //     });
-  //   });
-
-  //   return clientProjects;
-  // };
-
-  // const test = () => {
-  //   console.log(this);
-  // };
-  // console.log(clientProjects);
+  const existingProjects = projects.filter(
+    (project) => project.client_id === choosenClient.client_id
+  );
 
   return (
     <>
       <div>
         <h1>Hello {props.user.first_name}, you are logged in!</h1>
         <div className="dropdown">
-          <div className="dropdown-title title">1. Add client</div>
+          <div className="dropdown-title title">
+            {choosenClient.length === 0 ? "1. Add client" : choosenClient.name}
+          </div>
           {clients.map((client) => (
             <div
               className="dropdown-content"
-              // oncClick={setClientProjects(client)}
+              onClick={() => setChoosenClient(client)}
               key={client.client_id}
             >
               {client.name}
@@ -69,9 +56,19 @@ export default function LoggedIn(props) {
           ))}
         </div>
         <div className="dropdown">
-          <div className="dropdown-title title">2. Add project</div>
-          {projects.map((project) => (
-            <div className="dropdown-content">{project.name}</div>
+          <div className="dropdown-title title">
+            {choosenProject.length === 0
+              ? "2. Add project"
+              : choosenProject.name}
+          </div>
+          {existingProjects.map((clientProject) => (
+            <div
+              key={clientProject.client_id}
+              onClick={() => setChoosenProject(clientProject)}
+              className="dropdown-content"
+            >
+              {clientProject.name}
+            </div>
           ))}
         </div>
         {/* <button onClick={handleLogout}>Logout</button> */}
