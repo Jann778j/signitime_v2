@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { format } from "date-fns";
+import { format, isToday } from "date-fns";
 
 import FieldClient from "./FieldClient";
 import FieldClientProjects from "./FieldClientProjects";
@@ -42,7 +42,7 @@ export default function LoggedIn(props) {
 
   // console.log(format(new Date(), "MMM"));
   // const month = format(new Date(), "MMM");
-  const day = format(new Date(), "Do MMM");
+  const day = format(new Date(), "do 'of' MMM");
   console.log(day);
 
   return (
@@ -50,8 +50,12 @@ export default function LoggedIn(props) {
       <div>
         <h1>
           Hello {props.user.first_name}, <br />
-          today's {day}
+          today's the {day}
         </h1>
+        <div className="info-hover-container">
+          <span className="hover-trigger">?</span>
+          <span class="hover-info">Additional information</span>
+        </div>
         <div className="form-wrapper">
           <div>
             <FieldClient
