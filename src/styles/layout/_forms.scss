@@ -16,9 +16,9 @@
 // General input styling
 
 .rounded-corners {
+  @extend %padding10;
   border-radius: 200px;
   display: block;
-  padding: 10px;
 }
 
 input {
