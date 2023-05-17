@@ -1,0 +1,21 @@
+//------------------------------------------------------------------------------
+// TABLES
+//------------------------------------------------------------------------------
+
+table {
+  @extend %grey-border;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 100%;
+
+  thead {
+    // border-bottom: 1px solid $color-grey;
+    background-color: $color-blue;
+  }
+
+  th,
+  td {
+    @extend %padding10;
+    text-align: left;
+  }
+}

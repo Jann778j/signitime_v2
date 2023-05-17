@@ -7,6 +7,7 @@ import FieldClient from "./FieldClient";
 import FieldClientProjects from "./FieldClientProjects";
 import FieldHours from "./FieldHours";
 import FieldComment from "./FieldComment";
+import Table from "./Table";
 
 export default function LoggedIn(props) {
   const [clients, setClients] = useState([]);
@@ -16,13 +17,6 @@ export default function LoggedIn(props) {
   const [hours, setHours] = useState(0);
   const [notes, setNotes] = useState("");
   const [activeButton, setActiveButton] = useState(false);
-
-  // setUserInitials(props.user.initials);
-  // console.log(userInitials);
-  // console.log(choosenClient.client_id);
-  // console.log(choosenProject.project_id);
-  // console.log(hours);
-  // console.log(notes);
 
   useEffect(() => {
     async function getData() {
@@ -58,10 +52,12 @@ export default function LoggedIn(props) {
           hours: hours,
           notes: notes,
           project_id: choosenProject.project_id,
+          project_name: choosenProject.name,
           client_id: choosenClient.client_id,
+          client_name: choosenClient.name,
           initials: props.user.initials,
         });
-      console.log(data);
+      // console.log(data);
     }
 
     insertData();
@@ -90,6 +86,10 @@ export default function LoggedIn(props) {
   }, [choosenClient, choosenProject, hours, notes]);
 
   // console.log(activeButton);
+
+  const logArray = [choosenClient.name, choosenProject.name, hours, notes];
+  // console.log(logArray);
+  // console.log("From LoggedIn: ", props.supabase);
 
   return (
     <>
@@ -132,6 +132,24 @@ export default function LoggedIn(props) {
           Submit
         </button>
       </div>
+      <Table supabase={props.supabase} user={props.user} />
+      {/* <table>
+        <thead>
+          <tr>
+            <th>Client</th>
+            <th>Project</th>
+            <th>Hours</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {logArray.map((log) => (
+              <td>{log}</td>
+            ))}
+          </tr>
+        </tbody>
+      </table> */}
     </>
   );
 }
