@@ -75,9 +75,6 @@ h1 {
     transform-origin: center center;
   }
 }
-// .dropdown:hover .dropdown-content {
-//   display: block;
-// }
 
 //------------------------------------------------------------------------------
 // Input fields
@@ -115,12 +112,13 @@ input[type="number"] {
 // Info box
 .info-hover-container {
   position: relative;
-  display: inline-block;
   margin: 10px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .hover-trigger {
-  display: inline-block;
   padding: 5px;
   background-color: $color-grey;
   color: $color-white;
@@ -133,16 +131,27 @@ input[type="number"] {
 
 .hover-info {
   @extend %padding10;
+  @include peachCombo();
   position: absolute;
   bottom: 110%;
   left: 0;
-  // padding: 10px;
-  background-color: $color-grey;
+  width: 100%;
   border: 1px solid $color-white;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.3s;
-  color: $color-white;
+
+  ol {
+    padding: 30px;
+
+    li {
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
 
 .info-hover-container:hover .hover-info {
@@ -150,6 +159,7 @@ input[type="number"] {
   opacity: 1;
 }
 
+//------------------------------------------------------------------------------
 // Submit
 
 .button-wrapper {
@@ -171,5 +181,3 @@ input[type="number"] {
     cursor: pointer;
   }
 }
-
-

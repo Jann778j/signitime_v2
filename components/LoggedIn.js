@@ -127,10 +127,7 @@ export default function LoggedIn(props) {
           Hello {props.user.first_name}, <br />
           today's the {day}
         </h1>
-        <div className="info-hover-container">
-          <span className="hover-trigger">?</span>
-          <span className="hover-info">Additional information</span>
-        </div>
+
         <div className="form-wrapper">
           <div>
             <FieldClient
@@ -152,6 +149,19 @@ export default function LoggedIn(props) {
         </div>
         {/* <button onClick={handleLogout}>Logout</button> */}
       </div>
+      <div className="info-hover-container">
+        <span className="hover-trigger">?</span>
+        <div className="hover-info">
+          <p>The procedure goes a lil' like this...</p>
+          <ol>
+            <li>You begin with picking the client you've worked for</li>
+            <li>Pick the associated project</li>
+            <li>Fill in the hours you've spent</li>
+            <li>Add a note of the exact work you've done</li>
+          </ol>
+          <p>And that's it! Easy peasy lemon squeezy, your duty is done!</p>
+        </div>
+      </div>
       <div className="button-wrapper">
         <button
           disabled={!activeButton}
@@ -163,7 +173,7 @@ export default function LoggedIn(props) {
             : "Ready for submit!"}
         </button>
       </div>
-      <Table tableArray={tableArray} />
+      {tableArray.length > 0 ? <Table tableArray={tableArray} /> : ""}
     </>
   );
 }

@@ -54,7 +54,8 @@ export default function LoginPage() {
           setLoggedIn={setLoggedIn}
           email={email}
           password={password}
-          loggedIn={loggedIn}
+          lo
+          ggedIn={loggedIn}
           handleLogin={handleLogin}
         /> // Hvis brugeren ikke er logget ind, vises komponenten 'SignIn' med relevante props
       )}
