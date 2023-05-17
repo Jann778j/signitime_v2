@@ -17,6 +17,13 @@ export default function LoggedIn(props) {
   const [notes, setNotes] = useState("");
   const [activeButton, setActiveButton] = useState(false);
 
+  // setUserInitials(props.user.initials);
+  // console.log(userInitials);
+  // console.log(choosenClient.client_id);
+  // console.log(choosenProject.project_id);
+  // console.log(hours);
+  // console.log(notes);
+
   useEffect(() => {
     async function getData() {
       const { data, error } = await props.supabase.from("signitime-clients")
@@ -43,25 +50,32 @@ export default function LoggedIn(props) {
     getData();
   }, []);
 
+  const handleSubmit = () => {
+    async function insertData() {
+      const { data, error } = await props.supabase
+        .from("signitime-logs")
+        .upsert({
+          hours: hours,
+          notes: notes,
+          project_id: choosenProject.project_id,
+          client_id: choosenClient.client_id,
+          initials: props.user.initials,
+        });
+      console.log(data);
+    }
+
+    insertData();
+  };
+
   const day = format(new Date(), "do 'of' MMM"); // Setting the welcoming date
 
   //Toggle display block on dropdown
   const handleClick = (evt) => {
-    console.log("clicked", evt.target.closest(".dropdown"));
+    // console.log("clicked", evt.target.closest(".dropdown"));
     evt.target.closest(".dropdown").classList.toggle("display-content");
   };
 
   // Making submitbutton ready...
-  // if (
-  //   choosenClient.length !== 0 &&
-  //   choosenProject.length !== 0 &&
-  //   hours !== 0 &&
-  //   notes.length > 20
-  // ) {
-  //   // console.log("Ready to submit");
-  //   setActiveButton(true);
-  // }
-
   useEffect(() => {
     if (
       choosenClient.length !== 0 &&
@@ -75,7 +89,7 @@ export default function LoggedIn(props) {
     }
   }, [choosenClient, choosenProject, hours, notes]);
 
-  console.log(activeButton);
+  // console.log(activeButton);
 
   return (
     <>
@@ -110,7 +124,11 @@ export default function LoggedIn(props) {
         {/* <button onClick={handleLogout}>Logout</button> */}
       </div>
       <div className="button-wrapper">
-        <button disabled={!activeButton} className="submit rounded-corners">
+        <button
+          disabled={!activeButton}
+          className="submit rounded-corners"
+          onClick={handleSubmit}
+        >
           Submit
         </button>
       </div>
