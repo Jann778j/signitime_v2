@@ -5,6 +5,7 @@ export default function FieldClient(props) {
         {props.choosenClient.length === 0
           ? "1. Add client"
           : props.choosenClient.name}
+        <span className="arrow">↓</span>
       </div>
       <div className="dropdown-content-container">
         {props.clients.map((client) => (

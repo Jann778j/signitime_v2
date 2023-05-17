@@ -17,6 +17,7 @@ export default function LoggedIn(props) {
   const [hours, setHours] = useState(0);
   const [notes, setNotes] = useState("");
   const [activeButton, setActiveButton] = useState(false);
+  const [tableArray, setTableArray] = useState([]);
 
   useEffect(() => {
     async function getData() {
@@ -44,6 +45,25 @@ export default function LoggedIn(props) {
     getData();
   }, []);
 
+  // const handleSubmit = () => {
+  //   async function insertData() {
+  //     const { data, error } = await props.supabase
+  //       .from("signitime-logs")
+  //       .upsert({
+  //         hours: hours,
+  //         notes: notes,
+  //         project_id: choosenProject.project_id,
+  //         project_name: choosenProject.name,
+  //         client_id: choosenClient.client_id,
+  //         client_name: choosenClient.name,
+  //         initials: props.user.initials,
+  //       });
+  //     // console.log(data);
+  //   }
+
+  //   insertData();
+  // };
+
   const handleSubmit = () => {
     async function insertData() {
       const { data, error } = await props.supabase
@@ -57,11 +77,26 @@ export default function LoggedIn(props) {
           client_name: choosenClient.name,
           initials: props.user.initials,
         });
-      // console.log(data);
+
+      if (!error) {
+        const newData = {
+          client_name: choosenClient.name,
+          project_name: choosenProject.name,
+          hours: hours,
+          notes: notes,
+        };
+        setTableArray((prevTableArray) => [...prevTableArray, newData]);
+        setChoosenClient([]);
+        setChoosenProject([]);
+        setHours(0);
+        setNotes("");
+      }
     }
 
     insertData();
   };
+
+  console.log(tableArray);
 
   const day = format(new Date(), "do 'of' MMM"); // Setting the welcoming date
 
@@ -84,12 +119,6 @@ export default function LoggedIn(props) {
       setActiveButton(false);
     }
   }, [choosenClient, choosenProject, hours, notes]);
-
-  // console.log(activeButton);
-
-  const logArray = [choosenClient.name, choosenProject.name, hours, notes];
-  // console.log(logArray);
-  // console.log("From LoggedIn: ", props.supabase);
 
   return (
     <>
@@ -129,27 +158,12 @@ export default function LoggedIn(props) {
           className="submit rounded-corners"
           onClick={handleSubmit}
         >
-          Submit
+          {activeButton === false
+            ? "You haven’t logged anything… "
+            : "Ready for submit!"}
         </button>
       </div>
-      <Table supabase={props.supabase} user={props.user} />
-      {/* <table>
-        <thead>
-          <tr>
-            <th>Client</th>
-            <th>Project</th>
-            <th>Hours</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            {logArray.map((log) => (
-              <td>{log}</td>
-            ))}
-          </tr>
-        </tbody>
-      </table> */}
+      <Table tableArray={tableArray} />
     </>
   );
 }

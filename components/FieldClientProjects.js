@@ -9,6 +9,7 @@ export default function FieldClientProjects(props) {
         {props.choosenProject.length === 0
           ? "2. Add project"
           : props.choosenProject.name}
+        <span className="arrow">↓</span>
       </div>
       <div className="dropdown-content-container">
         {existingProjects.map((clientProject) => (

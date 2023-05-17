@@ -1,0 +1,68 @@
+//------------------------------------------------------------------------------
+// MIXINS
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+// limeCombo
+
+@mixin limeCombo($dark: "") {
+  background-color: $color-lime;
+  color: $color-lime-text;
+
+  @if $dark == "dark" {
+    background-color: $color-lime-text;
+    color: $color-lime;
+  }
+}
+
+//------------------------------------------------------------------------------
+// peachCombo
+
+@mixin peachCombo($dark: "") {
+  background-color: $color-peach;
+  color: $color-peach-text;
+
+  @if $dark == "dark" {
+    background-color: $color-peach-text;
+    color: $color-peach;
+  }
+}
+
+//------------------------------------------------------------------------------
+// roseCombo
+
+@mixin roseCombo($dark: "") {
+  background-color: $color-rose;
+  color: $color-rose-text;
+
+  @if $dark == "dark" {
+    background-color: $color-rose-text;
+    color: $color-rose;
+  }
+}
+
+//------------------------------------------------------------------------------
+// blueCombo
+
+@mixin blueCombo($dark: "") {
+  background-color: $color-blue;
+  color: $color-blue-text;
+
+  @if $dark == "dark" {
+    background-color: $color-blue-text;
+    color: $color-blue;
+  }
+}
+
+//------------------------------------------------------------------------------
+// purpleCombo
+
+@mixin purpleCombo($dark: "") {
+  background-color: $color-purple;
+  color: $color-purple-text;
+
+  @if $dark == "dark" {
+    background-color: $color-purple-text;
+    color: $color-purple;
+  }
+}
