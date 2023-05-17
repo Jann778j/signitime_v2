@@ -9,8 +9,7 @@ table {
   width: 100%;
 
   thead {
-    // border-bottom: 1px solid $color-grey;
-    background-color: $color-blue;
+    @include blueCombo();
   }
 
   th,

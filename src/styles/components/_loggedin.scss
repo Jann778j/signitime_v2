@@ -157,4 +157,19 @@ input[type="number"] {
   padding-top: 30px;
   display: flex;
   justify-content: center;
+
+  button {
+    @extend %padding10;
+    border: none;
+  }
+
+  button[disabled] {
+    @extend %grey-button;
+  }
+  button:not([disabled]) {
+    @include limeCombo();
+    cursor: pointer;
+  }
 }
+
+
