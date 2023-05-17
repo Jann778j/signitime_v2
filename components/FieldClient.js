@@ -1,6 +1,6 @@
 export default function FieldClient(props) {
   return (
-    <div className="dropdown">
+    <div onClick={props.handleClick} className="dropdown">
       <div className="dropdown-title title">
         {props.choosenClient.length === 0
           ? "1. Add client"

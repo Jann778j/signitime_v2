@@ -8,14 +8,13 @@ export default function FieldComment(props) {
       <div className="comment-title title">
         4. What did you do? <span className="fig">Min. 50 characters </span>{" "}
       </div>
-      <input
+      {/* <input
         name="duration"
         type="text"
         value={props.notes}
         onChange={handleNoteChange}
-        maxlength="50"
-        required
-      />
+      /> */}
+      <textarea rows={3} value={props.notes} onChange={handleNoteChange} />
     </div>
   );
 }

@@ -1,6 +1,8 @@
+//Libraries
 import { useEffect, useState } from "react";
-import { format, isToday } from "date-fns";
+import { format } from "date-fns";
 
+//Components
 import FieldClient from "./FieldClient";
 import FieldClientProjects from "./FieldClientProjects";
 import FieldHours from "./FieldHours";
@@ -13,6 +15,7 @@ export default function LoggedIn(props) {
   const [choosenProject, setChoosenProject] = useState([]);
   const [hours, setHours] = useState(0);
   const [notes, setNotes] = useState("");
+  const [activeButton, setActiveButton] = useState(false);
 
   useEffect(() => {
     async function getData() {
@@ -40,10 +43,39 @@ export default function LoggedIn(props) {
     getData();
   }, []);
 
-  // console.log(format(new Date(), "MMM"));
-  // const month = format(new Date(), "MMM");
-  const day = format(new Date(), "do 'of' MMM");
-  console.log(day);
+  const day = format(new Date(), "do 'of' MMM"); // Setting the welcoming date
+
+  //Toggle display block on dropdown
+  const handleClick = (evt) => {
+    console.log("clicked", evt.target.closest(".dropdown"));
+    evt.target.closest(".dropdown").classList.toggle("display-content");
+  };
+
+  // Making submitbutton ready...
+  // if (
+  //   choosenClient.length !== 0 &&
+  //   choosenProject.length !== 0 &&
+  //   hours !== 0 &&
+  //   notes.length > 20
+  // ) {
+  //   // console.log("Ready to submit");
+  //   setActiveButton(true);
+  // }
+
+  useEffect(() => {
+    if (
+      choosenClient.length !== 0 &&
+      choosenProject.length !== 0 &&
+      hours !== 0 &&
+      notes.length >= 20
+    ) {
+      setActiveButton(true);
+    } else {
+      setActiveButton(false);
+    }
+  }, [choosenClient, choosenProject, hours, notes]);
+
+  console.log(activeButton);
 
   return (
     <>
@@ -54,7 +86,7 @@ export default function LoggedIn(props) {
         </h1>
         <div className="info-hover-container">
           <span className="hover-trigger">?</span>
-          <span class="hover-info">Additional information</span>
+          <span className="hover-info">Additional information</span>
         </div>
         <div className="form-wrapper">
           <div>
@@ -62,12 +94,14 @@ export default function LoggedIn(props) {
               clients={clients}
               choosenClient={choosenClient}
               setChoosenClient={setChoosenClient}
+              handleClick={handleClick}
             />
             <FieldClientProjects
               choosenClient={choosenClient}
               choosenProject={choosenProject}
               projects={projects}
               setChoosenProject={setChoosenProject}
+              handleClick={handleClick}
             />
             <FieldHours hours={hours} setHours={setHours} />
           </div>
@@ -75,7 +109,11 @@ export default function LoggedIn(props) {
         </div>
         {/* <button onClick={handleLogout}>Logout</button> */}
       </div>
-      <button className="submit rounded-corners">Submit</button>
+      <div className="button-wrapper">
+        <button disabled={!activeButton} className="submit rounded-corners">
+          Submit
+        </button>
+      </div>
     </>
   );
 }
