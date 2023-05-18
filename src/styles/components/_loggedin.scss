@@ -110,12 +110,16 @@ input[type="number"] {
 
 //------------------------------------------------------------------------------
 // Info box
-.info-hover-container {
+.info-wrapper {
   position: relative;
   margin: 10px 0px;
   width: 100%;
   display: flex;
   justify-content: flex-end;
+}
+
+.info-hover-container {
+  display: flex;
 }
 
 .hover-trigger {

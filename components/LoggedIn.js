@@ -45,25 +45,6 @@ export default function LoggedIn(props) {
     getData();
   }, []);
 
-  // const handleSubmit = () => {
-  //   async function insertData() {
-  //     const { data, error } = await props.supabase
-  //       .from("signitime-logs")
-  //       .upsert({
-  //         hours: hours,
-  //         notes: notes,
-  //         project_id: choosenProject.project_id,
-  //         project_name: choosenProject.name,
-  //         client_id: choosenClient.client_id,
-  //         client_name: choosenClient.name,
-  //         initials: props.user.initials,
-  //       });
-  //     // console.log(data);
-  //   }
-
-  //   insertData();
-  // };
-
   const handleSubmit = () => {
     async function insertData() {
       const { data, error } = await props.supabase
@@ -96,7 +77,7 @@ export default function LoggedIn(props) {
     insertData();
   };
 
-  console.log(tableArray);
+  // console.log(tableArray);
 
   const day = format(new Date(), "do 'of' MMM"); // Setting the welcoming date
 
@@ -149,17 +130,19 @@ export default function LoggedIn(props) {
         </div>
         {/* <button onClick={handleLogout}>Logout</button> */}
       </div>
-      <div className="info-hover-container">
-        <span className="hover-trigger">?</span>
-        <div className="hover-info">
-          <p>The procedure goes a lil' like this...</p>
-          <ol>
-            <li>You begin with picking the client you've worked for</li>
-            <li>Pick the associated project</li>
-            <li>Fill in the hours you've spent</li>
-            <li>Add a note of the exact work you've done</li>
-          </ol>
-          <p>And that's it! Easy peasy lemon squeezy, your duty is done!</p>
+      <div className="info-wrapper">
+        <div className="info-hover-container">
+          <span className="hover-trigger">?</span>
+          <div className="hover-info">
+            <p>The procedure goes a lil' like this...</p>
+            <ol>
+              <li>You begin with picking the client you've worked for</li>
+              <li>Pick the associated project</li>
+              <li>Fill in the hours you've spent</li>
+              <li>Add a note of the exact work you've done</li>
+            </ol>
+            <p>And that's it! Easy peasy lemon squeezy, your duty is done!</p>
+          </div>
         </div>
       </div>
       <div className="button-wrapper">

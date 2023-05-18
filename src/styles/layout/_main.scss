@@ -3,7 +3,6 @@
 //------------------------------------------------------------------------------
 
 main {
+  @extend %base-screen-margin;
   margin-top: 20vh;
-  margin-right: 20%;
-  margin-left: 20%;
 }

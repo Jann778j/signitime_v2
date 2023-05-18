@@ -14,3 +14,13 @@
   background-color: $color-grey;
   color: $color-white;
 }
+
+%base-screen-margin {
+  margin-right: 20%;
+  margin-left: 20%;
+}
+
+%base-screen-padding {
+  padding-right: 20%;
+  padding-left: 20%;
+}

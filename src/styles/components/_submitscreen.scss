@@ -1,0 +1,61 @@
+//------------------------------------------------------------------------------
+// SUBMIT SCREEN
+//------------------------------------------------------------------------------
+
+.submit-screen {
+  @extend %base-screen-padding;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  background: #c2ffc2;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+
+  button {
+    border: none;
+  }
+}
+
+.monday {
+  @include peachCombo();
+
+  button {
+    @include peachCombo(dark);
+  }
+}
+
+.tuesday {
+  @include limeCombo();
+
+  button {
+    @include limeCombo(dark);
+  }
+}
+
+.wednesday {
+  @include roseCombo();
+
+  button {
+    @include roseCombo(dark);
+  }
+}
+
+.thursday {
+  @include blueCombo();
+
+  button {
+    @include blueCombo(dark);
+  }
+}
+
+.friday {
+  @include purpleCombo();
+
+  button {
+    @include purpleCombo(dark);
+  }
+}

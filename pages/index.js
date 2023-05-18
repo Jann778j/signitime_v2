@@ -33,7 +33,7 @@ export default function LoginPage() {
         // Tjekker om email og password matcher en bruger
         setLoggedIn(true); // Opdaterer logget-ind status til true
         setUser(user); // Opdaterer den aktive bruger
-        console.log(user); // Udskriver brugeroplysningerne i konsollen
+        // console.log(user); // Udskriver brugeroplysningerne i konsollen
       }
     });
   };
