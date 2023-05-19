@@ -20,7 +20,7 @@ export default function SignIn(props) {
               className="rounded-corners"
               type="email"
               value={props.email}
-              onChange={(e) => props.setEmail(e.target.value)}
+              onChange={(e) => props.setEmail(e.target.value)} // Opdaterer e-mail ved ændring
             />
           </label>
           <label>
@@ -29,7 +29,7 @@ export default function SignIn(props) {
               className="rounded-corners"
               type="password"
               value={props.password}
-              onChange={(e) => props.setPassword(e.target.value)}
+              onChange={(e) => props.setPassword(e.target.value)} // Opdaterer password ved ændring
             />
           </label>
           <button

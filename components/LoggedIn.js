@@ -19,6 +19,7 @@ export default function LoggedIn(props) {
   const [activeButton, setActiveButton] = useState(false);
   const [tableArray, setTableArray] = useState([]);
 
+  //dette useEffect-hook bruges til at hente data om klienter og opdatere clients-tilstanden med de modtagne data.
   useEffect(() => {
     async function getData() {
       const { data, error } = await props.supabase.from("signitime-clients")
@@ -32,6 +33,7 @@ export default function LoggedIn(props) {
     getData();
   }, []);
 
+  //dette useEffect-hook bruges til at hente data om projekter og opdatere projects-tilstanden med de modtagne data.
   useEffect(() => {
     async function getData() {
       const { data, error } = await props.supabase.from("signitime-projects")
@@ -45,6 +47,8 @@ export default function LoggedIn(props) {
     getData();
   }, []);
 
+  //Generelt set udfører denne kode funktionen for at indsende data til en database via Supabase,
+  //og efter en vellykket indsendelse opdateres andre tilstande og formularfelter for at forberede den næste indsendelse.
   const handleSubmit = () => {
     async function insertData() {
       const { data, error } = await props.supabase

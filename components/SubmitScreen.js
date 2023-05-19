@@ -1,17 +1,18 @@
 import { format } from "date-fns";
 
 export default function SubmitScreen(props) {
-  const day = format(new Date(), "eeee"); // Setting the day-class
+  const day = format(new Date(), "eeee"); // Indstiller day-variablen til dagens navn (f.eks. "mandag")
 
   let text;
   let headline;
   let figur;
 
+  // Hvis det er mandag
   if (day.toLowerCase() == "monday") {
-    headline = "Great jobbin’!";
+    headline = "Great jobbin’!"; // Overskriften sættes til "Great jobbin’!"
     text =
-      "You just submitted your hours of the day. Enjoy a tremendous tuesday, and see you again tomorrow!";
-    figur = "monday.svg";
+      "You just submitted your hours of the day. Enjoy a tremendous tuesday, and see you again tomorrow!"; // Teksten sættes til passende besked for mandag
+    figur = "monday.svg"; // figur sættes til billede for mandag
   } else if (day.toLowerCase() == "tuesday") {
     headline = "Super worker!";
     text =
@@ -33,6 +34,7 @@ export default function SubmitScreen(props) {
       "You just submitted your hours of the day. And this is the last day of the week. Have a wonderful weekend the way you like it best, and see you again!";
     figur = "friday.svg";
   } else {
+    // Hvis det er weekend (lørdag eller søndag)
     headline = "It's weekend...";
     text = "You shouldn't be working";
   }
