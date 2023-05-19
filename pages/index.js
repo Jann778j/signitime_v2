@@ -3,12 +3,9 @@ import SignIn from "@/components/SignIn";
 import LoggedIn from "@/components/LoggedIn";
 import { createClient } from "@supabase/supabase-js";
 
-export default function LoginPage() {
+export default function LoginPage(props) {
   const [email, setEmail] = useState(""); // State hook til at gemme email-inputtet
-  const [users, setUsers] = useState([]); // State hook til at gemme brugerdata
-  const [user, setUser] = useState({}); // State hook til at gemme den aktive bruger
   const [password, setPassword] = useState(""); // State hook til at gemme password-inputtet
-  const [loggedIn, setLoggedIn] = useState(false); // State hook til at angive, om brugeren er logget ind eller ej
 
   const supabaseUrl = "https://npgsxgghhvvsygshumrm.supabase.co/";
   const supabaseKey =
@@ -19,30 +16,29 @@ export default function LoginPage() {
   useEffect(() => {
     async function getData() {
       const { data, error } = await supabase.from("signitime-users").select(`
-          first_name, last_name, password, initials, email
+          first_name, last_name, password, initials, email, created_at
           `);
-      setUsers(data);
+      props.setUsers(data);
     }
     getData();
   }, []);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    users.forEach((user) => {
+    props.users.forEach((user) => {
       if (email === user.email && password === user.password) {
         // Tjekker om email og password matcher en bruger
-        setLoggedIn(true); // Opdaterer logget-ind status til true
-        setUser(user); // Opdaterer den aktive bruger
-        // console.log(user); // Udskriver brugeroplysningerne i konsollen
+        props.setLoggedIn(true); // Opdaterer logget-ind status til true
+        props.setUser(user); // Opdaterer den aktive bruger
       }
     });
   };
 
   return (
     <>
-      {loggedIn ? (
+      {props.loggedIn ? (
         <LoggedIn
-          user={user}
+          user={props.user}
           supabaseUrl={supabaseUrl}
           supabaseKey={supabaseKey}
           supabase={supabase}
@@ -51,11 +47,11 @@ export default function LoginPage() {
         <SignIn
           setPassword={setPassword}
           setEmail={setEmail}
-          setLoggedIn={setLoggedIn}
+          setLoggedIn={props.setLoggedIn}
           email={email}
           password={password}
           lo
-          ggedIn={loggedIn}
+          ggedIn={props.loggedIn}
           handleLogin={handleLogin}
         /> // Hvis brugeren ikke er logget ind, vises komponenten 'SignIn' med relevante props
       )}

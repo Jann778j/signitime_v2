@@ -17,84 +17,81 @@
 
   button {
     border: none;
-  }
-}
-
-.monday {
-  @include peachCombo();
-
-  button {
-    @include peachCombo(dark);
-  }
-   .img_wrapper{
-
-  img{
-    width: 50%;
-    height: 50%;    
-  }
-}
-}
-
-.tuesday {
-  @include limeCombo();
-
-  button {
-    @include limeCombo(dark);
-  }
-   .img_wrapper{
-
-  img{
-    width: 50%;
-    height: 50%;    
-  }
-}
-}
-
-.wednesday {
-  @include roseCombo();
-
-  button {
-    @include roseCombo(dark);
-  }
-   .img_wrapper{
-
-  img{
-    width: 50%;
-    height: 50%;    
-  }
-}
-}
-
-.thursday {
-  @include blueCombo();
-
-  button {
-    @include blueCombo(dark);
+    z-index: 3;
   }
 
-  .img_wrapper{
+  .img_wrapper {
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: flex-end;
+  }
 
-  img{
-    width: 50%;
-    height: 50%;    
+  img {
+    width: 20%;
+    padding-bottom: 45px;
+  }
+
+  p {
+    margin-bottom: 40px;
+    // width: 60%;
+  }
+
+  &.monday {
+    @include peachCombo();
+
+    button {
+      @include peachCombo(dark);
+    }
+
+    .img_wrapper {
+      justify-content: flex-end;
+      left: -60px;
+    }
+  }
+
+  &.tuesday {
+    @include limeCombo();
+
+    button {
+      @include limeCombo(dark);
+    }
+  }
+
+  &.wednesday {
+    @include roseCombo();
+
+    button {
+      @include roseCombo(dark);
+    }
+
+    .img_wrapper {
+      justify-content: flex-end;
+      left: -60px;
+    }
+  }
+
+  &.thursday {
+    @include blueCombo();
+
+    button {
+      @include blueCombo(dark);
+    }
+  }
+
+  &.friday {
+    @include purpleCombo();
+
+    button {
+      @include purpleCombo(dark);
+    }
+
+    .img_wrapper {
+      justify-content: flex-end;
+      left: -60px;
+    }
   }
 }
-}
-
-.friday {
-  @include purpleCombo();
-
-  button {
-    @include purpleCombo(dark);
-  }
-   .img_wrapper{
-
-  img{
-    width: 50%;
-    height: 50%;    
-  }
-}
-}
-
-
-

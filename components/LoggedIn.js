@@ -106,9 +106,8 @@ export default function LoggedIn(props) {
       <div>
         <h1>
           Hello {props.user.first_name}, <br />
-          today's the {day}
+          today's the <span className="marked">{day}</span>
         </h1>
-
         <div className="form-wrapper">
           <div>
             <FieldClient

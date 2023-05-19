@@ -7,7 +7,35 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
   .logo {
     width: 130px;
+  }
+
+  .header-links {
+    display: flex;
+    // width: 20%;
+    align-items: flex-start;
+    // justify-content: space-between;
+  }
+
+  .profile,
+  .calender {
+    width: 20px;
+    height: 27px;
+  }
+
+  .user-link {
+    display: flex;
+    align-items: flex-end;
+    margin-right: 1em;
+
+    p {
+      margin-right: 1em;
+    }
   }
 }

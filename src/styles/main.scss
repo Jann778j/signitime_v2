@@ -12,6 +12,7 @@
 // Layout
 @import "layout/forms";
 @import "layout/header";
+@import "layout/footer";
 @import "layout/main";
 @import "layout/tables";
 
@@ -25,4 +26,13 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+button {
+  width: 300px;
 }

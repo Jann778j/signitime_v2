@@ -1,14 +1,10 @@
 import Head from "next/head";
+import Anchor from "./Anchor";
+import { format } from "date-fns";
 
-//takes children meaning that it takes content from our pages
 export default function Layout(props) {
-  // const [openMenu, setOpenMenu] = useState(false);
-
-  //Ved toggle menu ændres state
-  // const toggleMenu = () => {
-  //   setOpenMenu(!openMenu);
-  // };
-
+  const year = format(new Date(), "yyyy");
+  console.log(year);
   return (
     <>
       <Head>
@@ -17,10 +13,24 @@ export default function Layout(props) {
         <title>SigniTime</title>
       </Head>
       <header>
-        <img src="logo.svg" className="logo" />
+        <Anchor href="/">
+          <img src="logo.svg" className="logo" />
+        </Anchor>
+        <div className="header-links">
+          <Anchor className="user-link" user={props.user} href="/user">
+            <p>{props.user.first_name}</p>
+            <img src="profile.svg" className="profile" />
+          </Anchor>
+          <Anchor className="calender-link" href="#">
+            <img src="calender.svg" className="calender" />
+          </Anchor>
+        </div>
       </header>
       <main>{props.children}</main>
-      <footer className="footer"></footer>
+      <footer className="footer">
+        <p>{year}</p>
+        <img src="radish.svg" />
+      </footer>
     </>
   );
 }
