@@ -26,6 +26,13 @@
   button {
     @include peachCombo(dark);
   }
+   .img_wrapper{
+
+  img{
+    width: 50%;
+    height: 50%;    
+  }
+}
 }
 
 .tuesday {
@@ -34,6 +41,13 @@
   button {
     @include limeCombo(dark);
   }
+   .img_wrapper{
+
+  img{
+    width: 50%;
+    height: 50%;    
+  }
+}
 }
 
 .wednesday {
@@ -42,6 +56,13 @@
   button {
     @include roseCombo(dark);
   }
+   .img_wrapper{
+
+  img{
+    width: 50%;
+    height: 50%;    
+  }
+}
 }
 
 .thursday {
@@ -50,6 +71,14 @@
   button {
     @include blueCombo(dark);
   }
+
+  .img_wrapper{
+
+  img{
+    width: 50%;
+    height: 50%;    
+  }
+}
 }
 
 .friday {
@@ -58,4 +87,14 @@
   button {
     @include purpleCombo(dark);
   }
+   .img_wrapper{
+
+  img{
+    width: 50%;
+    height: 50%;    
+  }
 }
+}
+
+
+

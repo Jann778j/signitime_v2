@@ -26,6 +26,7 @@ export default function FieldHours(props) {
         </div>
         <input
           required
+          id="myInput"
           name="duration"
           type="number"
           value={props.hours}
