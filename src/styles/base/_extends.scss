@@ -18,6 +18,11 @@
 %base-screen-margin {
   margin-right: 20%;
   margin-left: 20%;
+
+  @media (max-width: 700px) {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
 
 %base-screen-padding {

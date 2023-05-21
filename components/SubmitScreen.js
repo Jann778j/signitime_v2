@@ -35,8 +35,10 @@ export default function SubmitScreen(props) {
     figur = "friday.svg";
   } else {
     // Hvis det er weekend (lørdag eller søndag)
-    headline = "It's weekend...";
-    text = "You shouldn't be working";
+    headline = "Working in the weekend?";
+    text =
+      "How ambitious! But remember to lay back and calm down these days... See you again!";
+    figur = "weekend.svg";
   }
 
   return (

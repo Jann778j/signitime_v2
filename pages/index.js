@@ -31,6 +31,9 @@ export default function LoginPage(props) {
         props.setLoggedIn(true); // Opdaterer logget-ind status til true
         props.setUser(user); // Opdaterer den aktive bruger
       }
+      // } else {
+      //   alert("Email: test   |  Password: test ");
+      // }
     });
   };
 

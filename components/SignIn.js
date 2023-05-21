@@ -1,12 +1,4 @@
-//takes children meaning that it takes content from our pages
 export default function SignIn(props) {
-  // const [openMenu, setOpenMenu] = useState(false);
-
-  //Ved toggle menu ændres state
-  // const toggleMenu = () => {
-  //   setOpenMenu(!openMenu);
-  // };
-
   return (
     <div className="signin">
       <div className="form-wrapper">

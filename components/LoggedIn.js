@@ -8,6 +8,7 @@ import FieldClientProjects from "./FieldClientProjects";
 import FieldHours from "./FieldHours";
 import FieldComment from "./FieldComment";
 import Table from "./Table";
+import Infobox from "./Infobox";
 
 export default function LoggedIn(props) {
   const [clients, setClients] = useState([]);
@@ -113,7 +114,7 @@ export default function LoggedIn(props) {
           today's the <span className="marked">{day}</span>
         </h1>
         <div className="form-wrapper">
-          <div>
+          <div className="dropdown-wrapper">
             <FieldClient
               clients={clients}
               choosenClient={choosenClient}
@@ -133,21 +134,7 @@ export default function LoggedIn(props) {
         </div>
         {/* <button onClick={handleLogout}>Logout</button> */}
       </div>
-      <div className="info-wrapper">
-        <div className="info-hover-container">
-          <span className="hover-trigger">?</span>
-          <div className="hover-info">
-            <p>The procedure goes a lil' like this...</p>
-            <ol>
-              <li>You begin with picking the client you've worked for</li>
-              <li>Pick the associated project</li>
-              <li>Fill in the hours you've spent</li>
-              <li>Add a note of the exact work you've done</li>
-            </ol>
-            <p>And that's it! Easy peasy lemon squeezy, your duty is done!</p>
-          </div>
-        </div>
-      </div>
+      <Infobox />
       <div className="button-wrapper">
         <button
           disabled={!activeButton}

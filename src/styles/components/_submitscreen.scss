@@ -10,7 +10,7 @@
   justify-content: center;
   top: 0;
   left: 0;
-  background: #c2ffc2;
+  background: $color-white;
   height: 100vh;
   width: 100vw;
   z-index: 1;
@@ -23,11 +23,12 @@
   .img_wrapper {
     height: 100vh;
     width: 100vw;
-    left: 0;
+    left: -60px;
     position: absolute;
     top: 0;
     display: flex;
     align-items: flex-end;
+    justify-content: flex-end;
   }
 
   img {
@@ -37,7 +38,6 @@
 
   p {
     margin-bottom: 40px;
-    // width: 60%;
   }
 
   &.monday {
@@ -59,6 +59,10 @@
     button {
       @include limeCombo(dark);
     }
+    .img_wrapper {
+      justify-content: flex-start;
+      left: 60px;
+    }
   }
 
   &.wednesday {
@@ -79,6 +83,11 @@
 
     button {
       @include blueCombo(dark);
+    }
+
+    .img_wrapper {
+      justify-content: flex-start;
+      left: 60px;
     }
   }
 

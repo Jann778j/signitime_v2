@@ -22,9 +22,29 @@ input {
 
 .signin-form {
   padding: 40px;
+
+  @media (max-width: 700px) {
+    padding: 15px;
+    margin: 5px;
+  }
 }
 .logo {
   margin-right: 20px;
+
+  img {
+    width: 100%;
+  }
+
+  @media (max-width: 700px) {
+    display: flex;
+    margin-right: 0;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    img {
+      width: 70%;
+    }
+  }
 }
 
 input {
