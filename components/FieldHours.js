@@ -15,6 +15,11 @@ export default function FieldHours(props) {
     props.setHours(parseInt(formattedValue, 10));
   };
 
+  // var input = document.querySelector("input");
+  // input.addEventListener("input", function () {
+  //   this.value = this.value.replace(/[^0-9 \,]/, "");
+  // });
+
   return (
     <div className="hours">
       <div className="title">
@@ -28,7 +33,7 @@ export default function FieldHours(props) {
           required
           id="myInput"
           name="duration"
-          type="number"
+          type="numbers"
           value={props.hours}
           onChange={handleHourChange}
         />

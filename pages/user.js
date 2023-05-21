@@ -5,7 +5,7 @@ export default function Layout(props) {
   console.log(props.user);
   const createdAt = new Date(props.user.created_at);
 
-  const memberDate = createdAt.toLocaleString();
+  const memberDate = createdAt.toLocaleDateString();
 
   return (
     <>

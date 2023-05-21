@@ -30,7 +30,15 @@ h1 {
     resize: none;
     width: 100%;
     height: 100%;
+    
   }
+
+  textarea:focus-visible {
+  /* Custom focus border color */
+  border-color: $color-lime;
+  box-shadow: 0 0 3px $color-lime; /* Add a box shadow to mimic the focus effect */
+   outline: none !important;
+}
 }
 
 //------------------------------------------------------------------------------
@@ -57,6 +65,8 @@ h1 {
   background-color: $color-white;
   z-index: 2;
   width: 100%;
+  // border: 1px solid $color-grey;
+  // border-bottom: none;
 }
 
 .dropdown {
@@ -71,6 +81,12 @@ h1 {
   background-color: $color-white;
   padding: 12px 16px;
   z-index: 1;
+   border: 1px solid $color-grey;
+   border-bottom: none;
+}
+
+.dropdown-content-container:last-child {
+  border-bottom: 1px solid $color-grey;
 }
 .display-content {
   .dropdown-content {
@@ -94,7 +110,7 @@ h1 {
   align-items: center;
 }
 
-input[type="number"] {
+input[type="numbers"] {
   border: none;
   text-align: center;
   width: 60px;
@@ -102,10 +118,18 @@ input[type="number"] {
   padding: 0;
 
   &::-webkit-inner-spin-button,
-  &::-webkit-outer-spin-button {
-    appearance: textfield;
-    margin: 0;
+  &::-webkit-outer-spin-button{
+    appearance: none;
+    
   }
+}
+
+input[type="numbers"] {
+    -moz-appearance: textfield; //det her gør muligvis at vi ikke får numerisk keyborad op på tele...
+}
+
+  input[type="numbers"]:focus-visible {
+  outline: none !important;
 }
 
 .plus,
@@ -114,6 +138,8 @@ input[type="number"] {
   padding-left: 10px;
   cursor: pointer;
 }
+
+
 
 //------------------------------------------------------------------------------
 // Submit

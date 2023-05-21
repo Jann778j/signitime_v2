@@ -10,6 +10,7 @@ export default function LoginPage(props) {
   const supabaseUrl = "https://npgsxgghhvvsygshumrm.supabase.co/";
   const supabaseKey =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wZ3N4Z2doaHZ2c3lnc2h1bXJtIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODMxOTY3ODgsImV4cCI6MTk5ODc3Mjc4OH0.LgnpUXgA5am8PINB41wXA5ffjpBEZeIE1ovMNG5txr8";
+  //process.env.REACT_APP_VITE_SUPABASE_KEY;
   // const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
   const supabase = createClient(supabaseUrl, supabaseKey);
 

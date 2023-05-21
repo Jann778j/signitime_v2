@@ -12,8 +12,15 @@ header {
   justify-content: space-between;
   align-items: center;
 
+
+  
+
   .logo {
     width: 130px;
+
+     @media (max-width: 700px) {
+     width: 80px;
+  }
   }
 
   .header-links {
@@ -37,5 +44,10 @@ header {
     p {
       margin-right: 1em;
     }
+  }
+
+     @media (max-width: 700px) {
+    padding: 10px 20px 0px;
+    background-color: $color-white;
   }
 }
