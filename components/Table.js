@@ -13,7 +13,7 @@ export default function Table(props) {
   return (
     <>
       <table>
-        <thead>
+        <thead className="table-day">
           <tr>
             <th>Client</th>
             <th>Project</th>

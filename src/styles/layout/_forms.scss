@@ -30,7 +30,6 @@ input {
 }
 
 *:focus-visible,
-*:focus,
 textarea:focus-visible {
   border: 3px solid;
   border-color: $color-purple;

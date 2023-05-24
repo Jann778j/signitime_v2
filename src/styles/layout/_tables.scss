@@ -4,12 +4,27 @@
 
 table {
   @extend %grey-border;
-  margin-top: 40px;
+  border-collapse: collapse;
   margin-bottom: 10px;
   width: 100%;
 
-  thead {
+  &:not(.calender-table) {
+    margin-top: 40px;
+  }
+
+  &.calender-table {
+    margin-bottom: 40px;
+  }
+
+  .table-day {
     @include blueCombo();
+  }
+
+  .client-header {
+    background-color: $color-grey-light;
+    font-weight: 500;
+    border-top: 1px solid $color-grey;
+    border-bottom: 1px solid $color-grey;
   }
 
   th,

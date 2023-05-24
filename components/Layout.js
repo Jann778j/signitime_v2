@@ -20,7 +20,12 @@ export default function Layout(props) {
             <p>{props.user.first_name}</p>
             <img src="profile.svg" className="profile" />
           </Anchor>
-          <Anchor className="calender-link" user={props.user} href="/calender">
+          <Anchor
+            className="calender-link"
+            user={props.user}
+            supabase={props.supabase}
+            href="/calender"
+          >
             <img src="calender.svg" className="calender" />
           </Anchor>
         </div>

@@ -1,0 +1,37 @@
+//------------------------------------------------------------------------------
+// CLASS
+//------------------------------------------------------------------------------
+
+// Arrow
+
+.arrow {
+  margin-right: 1em;
+  font-size: 1.3em;
+}
+
+// color-combo w. days
+
+.monday,
+.Mon {
+  @include peachCombo();
+}
+
+.tuesday,
+.Tue {
+  @include limeCombo();
+}
+
+.wednesday,
+.Wed {
+  @include roseCombo();
+}
+
+.thursday,
+.Thu {
+  @include blueCombo();
+}
+
+.friday,
+.Fri {
+  @include purpleCombo();
+}
