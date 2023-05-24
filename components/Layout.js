@@ -1,9 +1,52 @@
 import Head from "next/head";
 import Anchor from "./Anchor";
 import { format } from "date-fns";
+import { useEffect, useState } from "react";
 
 export default function Layout(props) {
+  const [logo, setLogo] = useState("");
+  const [calender, setCalender] = useState("");
+  const [profile, setProfile] = useState("");
+
   const year = format(new Date(), "yyyy");
+
+  useEffect(() => {
+    const theme = localStorage.getItem("data-theme");
+    console.log(theme);
+
+    if (theme === "dark") {
+      changeThemeToDark();
+    } else {
+      changeThemeToLight();
+    }
+  }, []);
+
+  const changeThemeToDark = () => {
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("data-theme", "dark");
+    setLogo("logo-dark.svg");
+    setCalender("calender-dark.svg");
+    setProfile("profile-dark.svg");
+  };
+
+  const changeThemeToLight = () => {
+    document.documentElement.setAttribute("data-theme", "light");
+    localStorage.setItem("data-theme", "light");
+    setLogo("logo.svg");
+    setCalender("calender.svg");
+    setProfile("profile.svg");
+  };
+
+  const handleCheckboxChange = () => {
+    const theme = localStorage.getItem("data-theme");
+
+    if (theme === "dark") {
+      changeThemeToLight();
+    } else {
+      changeThemeToDark();
+    }
+  };
+
   return (
     <>
       <Head>
@@ -13,12 +56,12 @@ export default function Layout(props) {
       </Head>
       <header>
         <Anchor href="/">
-          <img src="logo.svg" className="logo" />
+          <img src={logo} className="logo" />
         </Anchor>
         <div className="header-links">
           <Anchor className="user-link" user={props.user} href="/user">
             <p>{props.user.first_name}</p>
-            <img src="profile.svg" className="profile" />
+            <img src={profile} className="profile" />
           </Anchor>
           <Anchor
             className="calender-link"
@@ -26,8 +69,16 @@ export default function Layout(props) {
             supabase={props.supabase}
             href="/calender"
           >
-            <img src="calender.svg" className="calender" />
+            <img src={calender} className="calender" />
           </Anchor>
+          <div>
+            <input
+              type="checkbox"
+              id="switch"
+              onChange={handleCheckboxChange}
+            />
+            <label htmlFor="switch">Switch Theme</label>
+          </div>{" "}
         </div>
       </header>
       <main>{props.children}</main>

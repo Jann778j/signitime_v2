@@ -3,6 +3,6 @@
 //------------------------------------------------------------------------------
 
 main {
-  @extend %base-screen-margin;
+  @extend %base-screen-padding;
   margin-top: 20vh;
 }

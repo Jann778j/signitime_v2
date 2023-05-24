@@ -1,9 +1,22 @@
+import { useEffect, useState } from "react";
 export default function SignIn(props) {
+  const [logo, setLogo] = useState("");
+
+  useEffect(() => {
+    const theme = localStorage.getItem("data-theme");
+
+    if (theme === "dark") {
+      setLogo("logo-dark.svg");
+    } else {
+      setLogo("logo.svg");
+    }
+  }, []);
+
   return (
     <div className="signin">
       <div className="form-wrapper">
         <div className="logo">
-          <img src="logo.svg"></img>
+          <img src={logo}></img>
         </div>
         <form className="signin-form" onSubmit={props.handleLogin}>
           <label>

@@ -8,6 +8,7 @@
 $color-white: #ffffff;
 $color-black: #000000;
 $color-grey: #acb0b9;
+$color-grey-dark: #444950;
 $color-grey-light: #f2f4f8;
 
 $color-rose: #ffdef2;
@@ -21,3 +22,14 @@ $color-lime-text: #333346;
 $color-rose-text: #620e40;
 $color-blue-text: #1f1750;
 $color-purple-text: #191760;
+
+[data-theme="light"] {
+  background-color: $color-white;
+  color: $color-black;
+}
+
+// Dark Mode Styles
+[data-theme="dark"] {
+  background-color: $color-black;
+  color: $color-white;
+}

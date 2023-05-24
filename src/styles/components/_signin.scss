@@ -13,6 +13,11 @@
   position: absolute;
   top: 0;
   left: 0;
+
+  [data-theme="dark"] & {
+    background: $color-black;
+    color: $color-white;
+  }
 }
 
 .signin-form,
@@ -28,6 +33,7 @@ input {
     margin: 40px;
   }
 }
+
 .logo {
   margin-right: 20px;
 
@@ -60,5 +66,10 @@ input {
   color: $color-white;
   border: none;
   width: 100%;
+
+  [data-theme="dark"] & {
+    background: $color-grey-dark;
+    color: $color-white;
+  }
   // padding: 10px;
 }

@@ -25,6 +25,11 @@ table {
     font-weight: 500;
     border-top: 1px solid $color-grey;
     border-bottom: 1px solid $color-grey;
+
+    [data-theme="dark"] & {
+      background-color: rgb(71, 70, 70);
+      border: none;
+    }
   }
 
   th,
