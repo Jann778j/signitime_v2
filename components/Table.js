@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SubmitScreen from "./SubmitScreen";
 
 export default function Table(props) {
   const [click, setClick] = useState(false);
+  let totalHours = 0;
+  props.tableArray.forEach((item) => {
+    totalHours = totalHours += item.hours;
+  });
+
+  console.log(totalHours);
 
   return (
     <>
@@ -25,7 +31,18 @@ export default function Table(props) {
             </tr>
           ))}
         </tbody>
+        {/* <tfoot>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </tfoot> */}
       </table>
+      <div className="total-hours">
+        Total hours: <span className="marked">{totalHours}</span>
+      </div>
       <div className="button-wrapper">
         <button
           onClick={() => setClick(true)}

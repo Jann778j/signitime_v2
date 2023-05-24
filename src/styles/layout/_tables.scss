@@ -5,7 +5,7 @@
 table {
   @extend %grey-border;
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   width: 100%;
 
   thead {
@@ -18,16 +18,20 @@ table {
     text-align: left;
   }
 
-    @media (max-width: 700px) {
-  
-  table tbody tr td {
-    word-wrap: break-word;
-  overflow-wrap: break-word;
-
+  @media (max-width: 700px) {
+    table tbody tr td {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
   }
+}
 
+.total-hours {
+  @extend %padding10;
+  display: flex;
+  justify-content: flex-end;
+
+  .marked {
+    margin-left: 1em;
   }
-
-
-  
 }

@@ -1,7 +1,7 @@
 import Anchor from "@/components/Anchor";
 import { format } from "date-fns";
 
-export default function Layout(props) {
+export default function User(props) {
   console.log(props.user);
   const createdAt = new Date(props.user.created_at);
 

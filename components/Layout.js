@@ -4,7 +4,6 @@ import { format } from "date-fns";
 
 export default function Layout(props) {
   const year = format(new Date(), "yyyy");
-  console.log(year);
   return (
     <>
       <Head>
@@ -21,7 +20,7 @@ export default function Layout(props) {
             <p>{props.user.first_name}</p>
             <img src="profile.svg" className="profile" />
           </Anchor>
-          <Anchor className="calender-link" href="#">
+          <Anchor className="calender-link" user={props.user} href="/calender">
             <img src="calender.svg" className="calender" />
           </Anchor>
         </div>
