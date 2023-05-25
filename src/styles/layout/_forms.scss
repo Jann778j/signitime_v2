@@ -29,6 +29,14 @@ input {
   width: 100%;
 }
 
+[data-theme="dark"] {
+  input,
+  textarea {
+    background-color: $color-black;
+    color: $color-white;
+  }
+}
+
 *:focus-visible,
 textarea:focus-visible {
   border: 3px solid;

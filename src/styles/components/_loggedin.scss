@@ -64,10 +64,17 @@ h1 {
   background-color: $color-white;
   z-index: 2;
   width: 100%;
+
   // border: 1px solid $color-grey;
   // border-bottom: none;
 }
-
+[data-theme="dark"] {
+  .dropdown-content-container,
+  .dropdown-content {
+    background-color: $color-black;
+    color: $color-white;
+  }
+}
 .dropdown {
   cursor: pointer;
 }

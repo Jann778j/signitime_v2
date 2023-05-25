@@ -27,7 +27,7 @@ table {
     border-bottom: 1px solid $color-grey;
 
     [data-theme="dark"] & {
-      background-color: rgb(71, 70, 70);
+      background-color: $color-grey-dark;
       border: none;
     }
   }
@@ -53,5 +53,15 @@ table {
 
   .marked {
     margin-left: 1em;
+  }
+}
+
+.calender-table {
+  thead {
+    * {
+      font-weight: 400;
+      text-align: center;
+      text-transform: uppercase;
+    }
   }
 }

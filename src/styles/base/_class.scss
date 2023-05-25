@@ -13,44 +13,24 @@
 .monday,
 .Mon {
   @include peachCombo();
-
-  [data-theme="dark"] & {
-    @include peachCombo(dark);
-  }
 }
 
 .tuesday,
 .Tue {
   @include limeCombo();
-
-  [data-theme="dark"] & {
-    @include limeCombo(dark);
-  }
 }
 
 .wednesday,
 .Wed {
   @include roseCombo();
-
-  [data-theme="dark"] & {
-    @include roseCombo(dark);
-  }
 }
 
 .thursday,
 .Thu {
   @include blueCombo();
-
-  [data-theme="dark"] & {
-    @include blueCombo(dark);
-  }
 }
 
 .friday,
 .Fri {
   @include purpleCombo();
-
-  [data-theme="dark"] & {
-    @include purpleCombo(dark);
-  }
 }

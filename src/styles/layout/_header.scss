@@ -12,15 +12,12 @@ header {
   justify-content: space-between;
   align-items: center;
 
-
-  
-
   .logo {
     width: 130px;
 
-     @media (max-width: 700px) {
-     width: 80px;
-  }
+    @media (max-width: 700px) {
+      width: 80px;
+    }
   }
 
   .header-links {
@@ -46,8 +43,12 @@ header {
     }
   }
 
-     @media (max-width: 700px) {
+  @media (max-width: 700px) {
     padding: 10px 20px 0px;
     background-color: $color-white;
+
+    [data-theme="dark"] & {
+      background-color: $color-black;
+    }
   }
 }

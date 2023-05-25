@@ -13,6 +13,11 @@
     background-color: $color-lime-text;
     color: $color-lime;
   }
+
+  [data-theme="dark"] & {
+    background-color: $color-lime-text;
+    color: $color-lime;
+  }
 }
 
 //------------------------------------------------------------------------------
@@ -23,6 +28,11 @@
   color: $color-peach-text;
 
   @if $dark == "dark" {
+    background-color: $color-peach-text;
+    color: $color-peach;
+  }
+
+  [data-theme="dark"] & {
     background-color: $color-peach-text;
     color: $color-peach;
   }
@@ -39,6 +49,11 @@
     background-color: $color-rose-text;
     color: $color-rose;
   }
+
+  [data-theme="dark"] & {
+    background-color: $color-rose-text;
+    color: $color-rose;
+  }
 }
 
 //------------------------------------------------------------------------------
@@ -49,6 +64,11 @@
   color: $color-blue-text;
 
   @if $dark == "dark" {
+    background-color: $color-blue-text;
+    color: $color-blue;
+  }
+
+  [data-theme="dark"] & {
     background-color: $color-blue-text;
     color: $color-blue;
   }
@@ -65,5 +85,9 @@
     background-color: $color-purple-text;
     color: $color-purple;
   }
-}
 
+  [data-theme="dark"] & {
+    background-color: $color-purple-text;
+    color: $color-purple;
+  }
+}

@@ -7,6 +7,7 @@ export default function Layout(props) {
   const [logo, setLogo] = useState("");
   const [calender, setCalender] = useState("");
   const [profile, setProfile] = useState("");
+  const [footerGraphic, setFooterGraphic] = useState("");
 
   const year = format(new Date(), "yyyy");
 
@@ -27,6 +28,7 @@ export default function Layout(props) {
     setLogo("logo-dark.svg");
     setCalender("calender-dark.svg");
     setProfile("profile-dark.svg");
+    setFooterGraphic("radish-dark.svg");
   };
 
   const changeThemeToLight = () => {
@@ -35,6 +37,7 @@ export default function Layout(props) {
     setLogo("logo.svg");
     setCalender("calender.svg");
     setProfile("profile.svg");
+    setFooterGraphic("radish.svg");
   };
 
   const handleCheckboxChange = () => {
@@ -84,7 +87,7 @@ export default function Layout(props) {
       <main>{props.children}</main>
       <footer className="footer">
         <p>{year}</p>
-        <img src="radish.svg" />
+        <img src={footerGraphic} />
       </footer>
     </>
   );
