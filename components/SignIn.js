@@ -12,6 +12,10 @@ export default function SignIn(props) {
     }
   }, []);
 
+  const handleForgotPassword = () => {
+    alert("Email: th@signifly.com  |  Password: signifly");
+  };
+
   return (
     <div className="signin">
       <div className="form-wrapper">
@@ -37,6 +41,7 @@ export default function SignIn(props) {
               onChange={(e) => props.setPassword(e.target.value)} // Opdaterer password ved ændring
             />
           </label>
+          <a onClick={handleForgotPassword}>Forgot your password?</a>
           <button
             onClick={props.handleLogin}
             className="signin-btn rounded-corners"

@@ -11,6 +11,7 @@ header {
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  z-index: 5;
 
   .logo {
     width: 130px;
@@ -33,74 +34,69 @@ header {
     height: 27px;
   }
 
-  .calender-link{
-    margin-right: 1em;
+  .calender-link {
+    margin-right: 1.5em;
   }
 
   .user-link {
     display: flex;
     align-items: flex-end;
-    margin-right: 1em;
-
-    p {
-      margin-right: 1em;
-    }
+    margin-right: 1.5em;
   }
 
   //------------------------------------------------------------------------------
-// toggle darkmode button
-//------------------------------------------------------------------------------
-
+  // toggle darkmode button
+  //------------------------------------------------------------------------------
 
   input[type="checkbox"] {
-  /* styling for input element */
-  height: 0;
-  width: 0;
-  visibility: hidden;
-}
+    /* styling for input element */
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
 
-label {
-  /* styling for labels */
-  cursor: pointer;
-  text-indent: -9999px;
-  width: 30px;
-  height: 17px;
-  top: 5px;
-  background: $color-black;
-  float: right;
-  border-radius: 100px;
-  position: relative;
-}
+  label {
+    /* styling for labels */
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 30px;
+    height: 17px;
+    top: 5px;
+    background: $color-black;
+    float: right;
+    border-radius: 100px;
+    position: relative;
+  }
 
-label:after {
-  /* styling for labels - on toggle */
-  content: "";
-  position: absolute;
-  top: 2.5px;
-  left: 3px;
-  width: 12px;
-  height: 12px;
-  background: $color-white;
-  border-radius: 90px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
+  label:after {
+    /* styling for labels - on toggle */
+    content: "";
+    position: absolute;
+    top: 2.5px;
+    left: 3px;
+    width: 12px;
+    height: 12px;
+    background: $color-white;
+    border-radius: 90px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
 
-input:checked + label {
-  /* conditional check while toggling */
-  background: $color-white;
-}
+  input:checked + label {
+    /* conditional check while toggling */
+    background: $color-white;
+  }
 
-input:checked + label:after {
-  left: calc(100% - 5px);
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
-  background-color: $color-black;
-}
+  input:checked + label:after {
+    left: calc(100% - 5px);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    background-color: $color-black;
+  }
 
-label:active:after {
-  width: 45px;
-}
+  label:active:after {
+    width: 45px;
+  }
 
   @media (max-width: 700px) {
     padding: 10px 20px 0px;

@@ -66,6 +66,10 @@
 
     button {
       @include peachCombo(dark);
+
+      [data-theme="dark"] & {
+        border: 1px solid $color-peach;
+      }
     }
 
     .img_wrapper {
@@ -83,7 +87,12 @@
 
     button {
       @include limeCombo(dark);
+
+      [data-theme="dark"] & {
+        border: 1px solid $color-lime;
+      }
     }
+
     .img_wrapper {
       justify-content: flex-start;
       left: 60px;
@@ -98,6 +107,9 @@
 
     button {
       @include roseCombo(dark);
+      [data-theme="dark"] & {
+        border: 1px solid $color-rose;
+      }
     }
 
     .img_wrapper {
@@ -114,6 +126,10 @@
 
     button {
       @include blueCombo(dark);
+
+      [data-theme="dark"] & {
+        border: 1px solid $color-blue;
+      }
     }
 
     .img_wrapper {
@@ -130,6 +146,10 @@
 
     button {
       @include purpleCombo(dark);
+
+      [data-theme="dark"] & {
+        border: 1px solid $color-purple;
+      }
     }
 
     .img_wrapper {

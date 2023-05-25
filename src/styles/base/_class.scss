@@ -5,8 +5,15 @@
 // Arrow
 
 .arrow {
-  margin-right: 1em;
   font-size: 1.3em;
+
+  &.gotologin {
+    margin-right: 1em;
+  }
+
+  [data-theme="dark"] & {
+    color: $color-white;
+  }
 }
 
 // color-combo w. days
@@ -33,4 +40,24 @@
 .friday,
 .Fri {
   @include purpleCombo();
+}
+
+.hover-line {
+  background-image: linear-gradient($color-black, $color-black);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 0.0625rem;
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  transition: background-size 0.35s ease-in-out;
+
+  &:hover {
+    background-size: 100% 0.0625rem;
+  }
+
+  [data-theme="dark"] & {
+    background-image: linear-gradient($color-white, $color-white);
+    color: $color-white;
+  }
 }
