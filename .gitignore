@@ -41,3 +41,6 @@ next-env.d.ts
 *.woff
 *.woff2
 .fonts.css
+
+/fonts
+/public
