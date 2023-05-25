@@ -102,9 +102,13 @@ export default function User(props) {
             );
 
             return matchingDay ? (
-              <td key={day}>{matchingDay.hours}</td>
+              <td className="text-center" key={day}>
+                {matchingDay.hours}
+              </td>
             ) : (
-              <td key={day}>-</td>
+              <td className="text-center" key={day}>
+                -
+              </td>
             );
           });
 

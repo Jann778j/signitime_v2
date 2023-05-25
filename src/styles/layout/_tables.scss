@@ -23,8 +23,8 @@ table {
   .client-header {
     background-color: $color-grey-light;
     font-weight: 500;
-    border-top: 1px solid $color-grey;
-    border-bottom: 1px solid $color-grey;
+    // border-top: 1px solid $color-grey;
+    // border-bottom: 1px solid $color-grey;
 
     [data-theme="dark"] & {
       background-color: $color-grey-dark;
@@ -36,6 +36,10 @@ table {
   td {
     @extend %padding10;
     text-align: left;
+  }
+
+  .text-center{
+      text-align: center;
   }
 
   @media (max-width: 700px) {
