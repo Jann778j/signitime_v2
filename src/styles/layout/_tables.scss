@@ -12,9 +12,6 @@ table {
     margin-top: 40px;
   }
 
-  &.calender-table {
-    margin-bottom: 40px;
-  }
 
   .table-day {
     @include blueCombo();
@@ -50,6 +47,8 @@ table {
   }
 }
 
+
+
 .total-hours {
   @extend %padding10;
   display: flex;
@@ -57,6 +56,10 @@ table {
 
   .marked {
     margin-left: 1em;
+  }
+
+  &.hours-padding{
+    margin-bottom: 20px
   }
 }
 

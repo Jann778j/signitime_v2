@@ -53,6 +53,12 @@ export default function User(props) {
         (item) => item.week === weekNumber
       );
 
+      //udregner det totale timetal for hver uge
+      const totalHours = matchingItems.reduce(
+        (acc, item) => acc + item.hours,
+        0
+      );
+
       //Tomt array som skal buges til at gemme data om clients og projects
       const clientData = [];
 
@@ -155,6 +161,11 @@ export default function User(props) {
               </tbody>
             ))}
           </table>
+
+          <div className="total-hours hours-padding">
+            Total hours: <span className="marked">{totalHours}</span>{" "}
+            {/* Display the total hours */}
+          </div>
         </div>
       );
     });
@@ -165,7 +176,7 @@ export default function User(props) {
       {props.loggedIn ? (
         <>
           <div>
-            <h1>Here is your overview, {props.user.first_name}</h1>
+            <h1>Here is your weekly overview, {props.user.first_name}</h1>
           </div>
           {renderTables()}
         </>

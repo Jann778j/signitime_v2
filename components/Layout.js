@@ -63,7 +63,7 @@ export default function Layout(props) {
         </Anchor>
         <div className="header-links">
           <Anchor className="user-link" user={props.user} href="/user">
-            <p>{props.user.first_name}</p>
+            {/* <p>{props.user.first_name}</p> */}
             <img src={profile} className="profile" />
           </Anchor>
           <Anchor
