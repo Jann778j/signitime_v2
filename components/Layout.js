@@ -74,14 +74,19 @@ export default function Layout(props) {
           >
             <img src={calender} className="calender" />
           </Anchor>
-          <div>
+          <div class="toggle-container">
             <input
               type="checkbox"
               id="switch"
+              name="theme"
               onChange={handleCheckboxChange}
             />
+            <label for="switch">Toggle</label>
+          </div>
+          {/* <div>
+            <input type="checkbox" id="switch" />
             <label htmlFor="switch">Switch Theme</label>
-          </div>{" "}
+          </div>{" "} */}
         </div>
       </header>
       <main>{props.children}</main>
