@@ -66,7 +66,7 @@ label {
   width: 30px;
   height: 17px;
   top: 5px;
-  background: $color-white;
+  background: $color-black;
   float: right;
   border-radius: 100px;
   position: relative;
@@ -80,7 +80,7 @@ label:after {
   left: 3px;
   width: 12px;
   height: 12px;
-  background: $color-black;
+  background: $color-white;
   border-radius: 90px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -88,14 +88,14 @@ label:after {
 
 input:checked + label {
   /* conditional check while toggling */
-  background: $color-black;
+  background: $color-white;
 }
 
 input:checked + label:after {
   left: calc(100% - 5px);
   -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
-  background-color: $color-white;
+  background-color: $color-black;
 }
 
 label:active:after {

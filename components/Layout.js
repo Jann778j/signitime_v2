@@ -74,14 +74,14 @@ export default function Layout(props) {
           >
             <img src={calender} className="calender" />
           </Anchor>
-          <div class="toggle-container">
+          <div className="toggle-container">
             <input
               type="checkbox"
               id="switch"
               name="theme"
               onChange={handleCheckboxChange}
             />
-            <label for="switch">Toggle</label>
+            <label htmlFor="switch">Toggle</label>
           </div>
           {/* <div>
             <input type="checkbox" id="switch" />
