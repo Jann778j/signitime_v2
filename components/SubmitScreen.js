@@ -46,12 +46,14 @@ export default function SubmitScreen(props) {
       <h1>{headline}</h1>
       <p>{text}</p>
 
-      <button
-        onClick={() => props.setClick(false)}
-        className="submit rounded-corners"
-      >
-        Cool
-      </button>
+      <div className="button-wrapper">
+        <button
+          onClick={() => props.setClick(false)}
+          className="submit rounded-corners"
+        >
+          Cool
+        </button>
+      </div>
       <div className="img_wrapper">
         <img src={figur} alt="figur" />
       </div>
