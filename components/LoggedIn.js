@@ -82,13 +82,10 @@ export default function LoggedIn(props) {
     insertData();
   };
 
-  // console.log(tableArray);
-
   const day = format(new Date(), "do 'of' MMM"); // Setting the welcoming date
 
   //Toggle display block on dropdown
   const handleClick = (evt) => {
-    // console.log("clicked", evt.target.closest(".dropdown"));
     evt.target.closest(".dropdown").classList.toggle("display-content");
   };
 
@@ -133,7 +130,6 @@ export default function LoggedIn(props) {
           </div>
           <FieldComment notes={notes} setNotes={setNotes} />
         </div>
-        {/* <button onClick={handleLogout}>Logout</button> */}
       </div>
 
       <div className="button-wrapper">
@@ -143,8 +139,8 @@ export default function LoggedIn(props) {
           onClick={handleSubmit}
         >
           {activeButton === false
-            ? "You haven’t logged anything… "
-            : "Ready for submit!"}
+            ? "Your log isn't ready for submit... "
+            : "Your log is ready for submit!"}
         </button>
       </div>
       {tableArray.length > 0 ? <Table tableArray={tableArray} /> : ""}

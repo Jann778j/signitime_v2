@@ -2,8 +2,6 @@ import { format } from "date-fns";
 import NotLoggedIn from "@/components/NotLoggedIn";
 
 export default function User(props) {
-  console.log(props.user);
-
   return (
     <>
       {props.loggedIn ? (

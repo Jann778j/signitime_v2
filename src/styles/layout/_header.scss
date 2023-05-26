@@ -15,9 +15,17 @@ header {
 
   .logo {
     width: 130px;
-
-    @media (max-width: 700px) {
+    height: auto;
+  }
+  @media (max-width: 700px) {
+    background-color: $color-white;
+    .logo {
       width: 80px;
+      padding-bottom: 10px;
+    }
+
+    [data-theme="dark"] & {
+      background: $color-black;
     }
   }
 

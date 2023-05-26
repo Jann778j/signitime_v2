@@ -13,7 +13,6 @@ export default function Layout(props) {
 
   useEffect(() => {
     const theme = localStorage.getItem("data-theme");
-    console.log(theme);
 
     if (theme === "dark") {
       changeThemeToDark();
@@ -59,12 +58,12 @@ export default function Layout(props) {
       </Head>
       <header>
         <Anchor href="/">
-          <img src={logo} className="logo" />
+          <img alt={logo} src={logo} className="logo" />
         </Anchor>
         <div className="header-links">
           <Anchor className="user-link" user={props.user} href="/user">
             {/* <p>{props.user.first_name}</p> */}
-            <img src={profile} className="profile" />
+            <img src={profile} alt={profile} className="profile" />
           </Anchor>
           <Anchor
             className="calender-link"
@@ -72,7 +71,7 @@ export default function Layout(props) {
             supabase={props.supabase}
             href="/calender"
           >
-            <img src={calender} className="calender" />
+            <img src={calender} alt={calender} className="calender" />
           </Anchor>
           <div className="toggle-container">
             <input
@@ -83,10 +82,6 @@ export default function Layout(props) {
             />
             <label htmlFor="switch">Toggle</label>
           </div>
-          {/* <div>
-            <input type="checkbox" id="switch" />
-            <label htmlFor="switch">Switch Theme</label>
-          </div>{" "} */}
         </div>
       </header>
       <main>{props.children}</main>

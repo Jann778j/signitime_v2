@@ -60,7 +60,7 @@ export default function SubmitScreen(props) {
         </Anchor>
       </div>
       <div className="img_wrapper">
-        <img src={figur} alt="figur" />
+        <img alt={figur} src={figur} />
       </div>
     </div>
   );

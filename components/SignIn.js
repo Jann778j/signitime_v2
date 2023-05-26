@@ -20,7 +20,7 @@ export default function SignIn(props) {
     <div className="signin">
       <div className="form-wrapper">
         <div className="logo">
-          <img src={logo}></img>
+          <img alt={logo} src={logo}></img>
         </div>
         <form className="signin-form" onSubmit={props.handleLogin}>
           <label>

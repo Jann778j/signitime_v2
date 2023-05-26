@@ -8,8 +8,6 @@ export default function Table(props) {
     totalHours = totalHours += item.hours;
   });
 
-  console.log(totalHours);
-
   return (
     <>
       <table>
