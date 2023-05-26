@@ -113,6 +113,7 @@ export default function LoggedIn(props) {
           Hello {props.user.first_name}, <br />
           today's the <span className="marked">{day}</span>
         </h1>
+        <Infobox />
         <div className="form-wrapper">
           <div className="dropdown-wrapper">
             <FieldClient
@@ -134,7 +135,7 @@ export default function LoggedIn(props) {
         </div>
         {/* <button onClick={handleLogout}>Logout</button> */}
       </div>
-      <Infobox />
+
       <div className="button-wrapper">
         <button
           disabled={!activeButton}

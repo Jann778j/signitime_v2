@@ -48,6 +48,11 @@ h1 {
     margin-bottom: 20px;
     margin-top: 20px;
   }
+
+  .dropdown-title:hover{
+    background-color: $color-grey-light;
+  }
+
 }
 
 .dropdown,
@@ -128,6 +133,12 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.hours:hover{
+
+    background-color: $color-grey-light;
+  
 }
 
 input[type="numbers"] {
