@@ -77,6 +77,18 @@ h1 {
 }
 .dropdown {
   cursor: pointer;
+
+  &:not(.display-content) {
+    .arrow {
+      transition: transform 0.15s ease-in-out;
+    }
+
+    &:hover {
+      .arrow {
+        transform: translateY(10%);
+      }
+    }
+  }
 }
 
 .dropdown-content {
@@ -99,11 +111,11 @@ h1 {
   .dropdown-content {
     display: block;
     z-index: 2;
-  }
 
-  .arrow {
-    transform: rotate(180deg);
-    transform-origin: center center;
+    // .arrow {
+    //   transform: rotate(180deg) translateY(0%);
+    //   transform-origin: center center;
+    // }
   }
 }
 

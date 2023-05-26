@@ -62,10 +62,24 @@ header {
     width: 30px;
     height: 17px;
     top: 5px;
-    background: $color-black;
     float: right;
     border-radius: 100px;
     position: relative;
+
+    [data-theme="light"] & {
+      background: $color-black;
+
+      &:after {
+        background: $color-white;
+      }
+    }
+
+    [data-theme="dark"] & {
+      background: $color-white;
+      &:after {
+        background: $color-black;
+      }
+    }
   }
 
   label:after {
@@ -76,7 +90,6 @@ header {
     left: 3px;
     width: 12px;
     height: 12px;
-    background: $color-white;
     border-radius: 90px;
     -webkit-transition: 0.3s;
     transition: 0.3s;
@@ -84,14 +97,27 @@ header {
 
   input:checked + label {
     /* conditional check while toggling */
-    background: $color-white;
+    [data-theme="light"] & {
+      background: $color-white;
+    }
+
+    [data-theme="dark"] & {
+      background: $color-white;
+    }
   }
 
   input:checked + label:after {
     left: calc(100% - 5px);
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
-    background-color: $color-black;
+
+    [data-theme="light"] & {
+      background: $color-white;
+    }
+
+    [data-theme="dark"] & {
+      background: $color-black;
+    }
   }
 
   label:active:after {
@@ -100,10 +126,5 @@ header {
 
   @media (max-width: 700px) {
     padding: 10px 20px 0px;
-    background-color: $color-white;
-
-    [data-theme="dark"] & {
-      background-color: $color-black;
-    }
   }
 }

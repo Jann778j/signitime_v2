@@ -33,3 +33,8 @@ $color-purple-text: #191760;
   background-color: $color-black;
   color: $color-white;
 }
+
+[data-theme] {
+  transition-duration: 2s;
+  transition-property: background-color color;
+}

@@ -11,7 +11,6 @@
 @import "components/submitscreen";
 @import "components/infobox";
 
-
 // Layout
 @import "layout/forms";
 @import "layout/header";
@@ -38,8 +37,9 @@ a {
 
 button {
   width: 300px;
-}
+  transition: filter 0.3s ease-in-out;
 
-// .monday {
-//   @include peachCombo();
-// }
+  &:hover {
+    filter: brightness(1.2);
+  }
+}
