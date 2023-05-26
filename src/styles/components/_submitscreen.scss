@@ -19,9 +19,16 @@
     text-align: center;
   }
 
-  button {
+.button-wrapper{
+  justify-content: space-evenly;
+}
+
+  button, a {
     border: none;
     z-index: 3;
+    width: 150px;
+  
+  
 
     @media (max-width: 700px) {
       width: 60%;

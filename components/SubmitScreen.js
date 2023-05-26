@@ -1,4 +1,5 @@
 import { format } from "date-fns";
+import Anchor from "./Anchor";
 
 export default function SubmitScreen(props) {
   const day = format(new Date(), "eeee"); // Indstiller day-variablen til dagens navn (f.eks. "mandag")
@@ -53,6 +54,10 @@ export default function SubmitScreen(props) {
         >
           Cool
         </button>
+
+        <Anchor href="/calender">
+          <button className="submit rounded-corners">Go to overiew</button>
+        </Anchor>
       </div>
       <div className="img_wrapper">
         <img src={figur} alt="figur" />
