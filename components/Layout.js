@@ -87,7 +87,7 @@ export default function Layout(props) {
       <main>{props.children}</main>
       <footer className="footer">
         <p>{year}</p>
-        <img src={footerGraphic} />
+        <img src={footerGraphic} alt={footerGraphic} />
       </footer>
     </>
   );
