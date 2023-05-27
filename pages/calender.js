@@ -22,7 +22,10 @@ export default function User(props) {
         (item) => item.initials === props.user.initials
       );
 
-      // Parse dates
+      // Analyser datoer
+      //parseISO() er en funktion fra date-fns-biblioteket, der bruges til at konvertere en streng i ISO 8601-format til en JavaScript Date-objekt.
+      //fx. yyyy-mm-dd
+      //vi bruger den til at fodele de loggede timer ud på de rigtige dage????
       const logsWithParsedDates = logsForInitial.map((item) => ({
         ...item,
         created_at: parseISO(item.created_at),
@@ -38,9 +41,12 @@ export default function User(props) {
 
   const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri"];
 
+  // Find unikke ugenumre baseret på arbejdstabeller
   const renderTables = () => {
     const weekNumbers = [...new Set(workingTables.map((item) => item.week))];
 
+    // her mapper vi igennem de forskellige ugenumre og filtrere gennem workingtables hvilke timer der hører til de forkellige ugenumre
+    // herefter bliver de matchende elemter gemt i variablen kaldet "mathingItems"
     return weekNumbers.map((weekNumber) => {
       const matchingItems = workingTables.filter(
         (item) => item.week === weekNumber
@@ -48,17 +54,23 @@ export default function User(props) {
 
       const clientData = [];
 
+      // Iterer over matchende elementer og organiser dem efter klient og projekt
+      // Inden for hver iteration genereres en nøgle ved at kombinere client_id og project_name for det aktuelle element.
       matchingItems.forEach((item) => {
         const key = `${item.client_id}-${item.project_name}`;
+        // her tjekker den efter om der er en anden client i "clientData"-listen som har det samme id
+        //hvis der er et match søger den videre efter it match på projectet der tilhører client
         const existingClient = clientData.find(
           (client) => client.client_id === item.client_id
         );
-
+        //her søger den efter om der også er et matchene projekt.
         if (existingClient) {
           const existingProject = existingClient.projects.find(
             (project) => project.key === key
           );
 
+          // hvis en client matcher på både client id og på project id så bliver de skubbet sammen
+          //altså bliver de lagt sammen som en linje i tabellen
           if (existingProject) {
             existingProject.matchingItems.push(item);
           } else {
@@ -68,6 +80,8 @@ export default function User(props) {
               matchingItems: [item],
             });
           }
+
+          //hvis de ikke matcher bliver de lagt på en linje for dem selv i tabellen
         } else {
           clientData.push({
             client_id: item.client_id,
@@ -83,12 +97,14 @@ export default function User(props) {
         }
       });
 
+      // Generer HTML-tabeller for klientdata og projektdata
       const renderTableRows = (projects, weekNumber) => {
         const projectData = projects.map((project) => {
           const dayData = daysOfWeek.map((day) => {
             let totalHours = 0; // Variable for total hours to add on
 
-            // Iterate over matching items and add their hours to the variable
+            // Iterer over matchende elementer og læg deres timer til variablen
+            //dette er de timer der fx. bliver lagt sammen så en client og projekt har flere match
             project.matchingItems.forEach((dayItem) => {
               if (dayItem.day === day && dayItem.week === weekNumber) {
                 totalHours += dayItem.hours;
@@ -114,6 +130,8 @@ export default function User(props) {
 
       let totalAllHours = 0;
 
+      // Beregn det samlede antal timer for den aktuelle uge
+      //denne bergenger det samlede antal timer for hele ugen
       matchingItems.forEach((item) => {
         console.log(item.hours);
         totalAllHours += item.hours;
