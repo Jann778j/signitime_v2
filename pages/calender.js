@@ -54,6 +54,8 @@ export default function User(props) {
 
       const clientData = [];
 
+      // console.log(matchingItems.projects);
+
       // Iterer over matchende elementer og organiser dem efter klient og projekt
       // Inden for hver iteration genereres en nøgle ved at kombinere client_id og project_name for det aktuelle element.
       matchingItems.forEach((item) => {
@@ -63,6 +65,7 @@ export default function User(props) {
         const existingClient = clientData.find(
           (client) => client.client_id === item.client_id
         );
+        console.log(typeof existingClient);
         //her søger den efter om der også er et matchene projekt.
         if (existingClient) {
           const existingProject = existingClient.projects.find(
@@ -133,7 +136,6 @@ export default function User(props) {
       // Beregn det samlede antal timer for den aktuelle uge
       //denne bergenger det samlede antal timer for hele ugen
       matchingItems.forEach((item) => {
-        console.log(item.hours);
         totalAllHours += item.hours;
       });
 
