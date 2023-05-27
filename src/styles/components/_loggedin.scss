@@ -142,7 +142,7 @@ h1 {
   background-color: $color-grey-light;
 }
 
-input[type="numbers"] {
+input[type="number"] {
   border: none;
   text-align: center;
   width: 60px;
@@ -153,14 +153,6 @@ input[type="numbers"] {
   &::-webkit-outer-spin-button {
     appearance: none;
   }
-}
-
-input[type="numbers"] {
-  -moz-appearance: textfield; //det her gør muligvis at vi ikke får numerisk keyborad op på tele...
-}
-
-input[type="numbers"]:focus-visible {
-  outline: none !important;
 }
 
 .plus,

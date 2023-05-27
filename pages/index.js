@@ -7,10 +7,6 @@ export default function LoginPage(props) {
   const [email, setEmail] = useState(""); // State hook til at gemme email-inputtet
   const [password, setPassword] = useState(""); // State hook til at gemme password-inputtet
 
-  // const supabaseUrl = "https://npgsxgghhvvsygshumrm.supabase.co/";
-  // const supabaseKey = process.env.NEXT_PUBLIC_REACT_APP_VITE_SUPABASE_KEY;
-  // const supabase = createClient(supabaseUrl, supabaseKey);
-
   useEffect(() => {
     async function getData() {
       const { data, error } = await props.supabase.from("signitime-users")
@@ -35,9 +31,6 @@ export default function LoginPage(props) {
         props.setLoggedIn(true); // Opdaterer logget-ind status til true
         props.setUser(user); // Opdaterer den aktive bruger
       }
-      // } else {
-      //   alert("Email: test   |  Password: test ");
-      // }
     });
   };
 

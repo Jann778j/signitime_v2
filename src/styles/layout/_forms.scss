@@ -38,7 +38,8 @@ input {
 }
 
 *:focus-visible,
-textarea:focus-visible {
+textarea:focus-visible,
+button:focus-visible {
   border: 3px solid;
   border-color: $color-purple;
   box-shadow: 0 0 3px $color-lime; /* Add a box shadow to mimic the focus effect */

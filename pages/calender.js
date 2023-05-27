@@ -17,21 +17,20 @@ export default function User(props) {
           created_at
         `);
 
-      //Vi vil kun se logs, som den aktive bruger har laveet
+      // Filter logs for the active user
       const logsForInitial = data.filter(
         (item) => item.initials === props.user.initials
       );
 
-      //Her formaterer vi datoer til JS-datoer
-      //Vi looper igennem array'et
+      // Parse dates
       const logsWithParsedDates = logsForInitial.map((item) => ({
-        ...item, //Vi vil bevare de andre informationer
+        ...item,
         created_at: parseISO(item.created_at),
-        week: getWeek(parseISO(item.created_at)), // Hvert objekt tilføres sin ugedag
-        day: format(parseISO(item.created_at), "EEE"), // Hvert objekt tilføres sin dag som "Mon", "Tue" etc.
+        week: getWeek(parseISO(item.created_at)),
+        day: format(parseISO(item.created_at), "EEE"),
       }));
 
-      setWorkingTables(logsWithParsedDates); //Array'et lagres i state
+      setWorkingTables(logsWithParsedDates);
     }
 
     getData();
@@ -39,58 +38,43 @@ export default function User(props) {
 
   const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri"];
 
-  //Her konstruerer vi tabellen:
-  //Denne returnerer en tabel baseret på data i vores state workingTables
   const renderTables = () => {
-    //weekNumbers oprettes ved at oprette et array af unikke ugenumre fra workingTables.
-    //vha. Set undgår vi gengangere / Gør dem ugenumrene unikke
     const weekNumbers = [...new Set(workingTables.map((item) => item.week))];
 
     return weekNumbers.map((weekNumber) => {
-      //Vi tjekker hvilke objekter der har samme ugenummer
-      //Disse lagres i en const
       const matchingItems = workingTables.filter(
         (item) => item.week === weekNumber
       );
 
-      //udregner det totale timetal for hver uge
-      const totalHours = matchingItems.reduce(
-        (acc, item) => acc + item.hours,
-        0
-      );
-
-      //Tomt array som skal buges til at gemme data om clients og projects
       const clientData = [];
 
-      //Ved hjælp af loops og if-betingelser analyseres hvert objekt i matchingItems
-      //for at organisere dataene efter clients og projects i clientData.
       matchingItems.forEach((item) => {
-        //Her leder vi efter om client eksisterer i overstående array
+        const key = `${item.client_id}-${item.project_name}`;
         const existingClient = clientData.find(
           (client) => client.client_id === item.client_id
         );
 
         if (existingClient) {
-          //Hvis den gør, leder vi efter projekter med samme client_id
           const existingProject = existingClient.projects.find(
-            (project) => project.client_id === item.client_id
+            (project) => project.key === key
           );
 
           if (existingProject) {
             existingProject.matchingItems.push(item);
           } else {
             existingClient.projects.push({
+              key,
               project_name: item.project_name,
               matchingItems: [item],
             });
           }
         } else {
-          //Vi bruger push, fordi clientData er et array
           clientData.push({
             client_id: item.client_id,
             client_name: item.client_name,
             projects: [
               {
+                key,
                 project_name: item.project_name,
                 matchingItems: [item],
               },
@@ -99,21 +83,21 @@ export default function User(props) {
         }
       });
 
-      //Her renderer vi rækkerne i tabellen, baseret på projekter og ugenumre
       const renderTableRows = (projects, weekNumber) => {
         const projectData = projects.map((project) => {
           const dayData = daysOfWeek.map((day) => {
-            const matchingDay = project.matchingItems.find(
-              (dayItem) => dayItem.day === day && dayItem.week === weekNumber
-            );
+            let totalHours = 0; // Variable for total hours to add on
 
-            return matchingDay ? (
+            // Iterate over matching items and add their hours to the variable
+            project.matchingItems.forEach((dayItem) => {
+              if (dayItem.day === day && dayItem.week === weekNumber) {
+                totalHours += dayItem.hours;
+              }
+            });
+
+            return (
               <td className="text-center" key={day}>
-                {matchingDay.hours}
-              </td>
-            ) : (
-              <td className="text-center" key={day}>
-                -
+                {totalHours.toLocaleString("da-DK")}
               </td>
             );
           });
@@ -125,9 +109,15 @@ export default function User(props) {
             </>
           );
         });
-
         return projectData;
       };
+
+      let totalAllHours = 0;
+
+      matchingItems.forEach((item) => {
+        console.log(item.hours);
+        totalAllHours += item.hours;
+      });
 
       return (
         <div key={weekNumber}>
@@ -163,8 +153,10 @@ export default function User(props) {
           </table>
 
           <div className="total-hours hours-padding">
-            Total hours: <span className="marked">{totalHours}</span>{" "}
-            {/* Display the total hours */}
+            Total hours:
+            <span className="marked">
+              {totalAllHours.toLocaleString("da-DK")}
+            </span>
           </div>
         </div>
       );

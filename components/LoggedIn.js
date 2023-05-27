@@ -50,7 +50,8 @@ export default function LoggedIn(props) {
 
   //Generelt set udfører denne kode funktionen for at indsende data til en database via Supabase,
   //og efter en vellykket indsendelse opdateres andre tilstande og formularfelter for at forberede den næste indsendelse.
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     async function insertData() {
       const { data, error } = await props.supabase
         .from("signitime-logs")
@@ -105,12 +106,12 @@ export default function LoggedIn(props) {
 
   return (
     <>
-      <div>
-        <h1>
-          Hello {props.user.first_name}, <br />
-          today's the <span className="marked">{day}</span>
-        </h1>
-        <Infobox />
+      <h1>
+        Hello {props.user.first_name}, <br />
+        today's the <span className="marked">{day}</span>
+      </h1>
+      <Infobox />
+      <form>
         <div className="form-wrapper">
           <div className="dropdown-wrapper">
             <FieldClient
@@ -130,19 +131,20 @@ export default function LoggedIn(props) {
           </div>
           <FieldComment notes={notes} setNotes={setNotes} />
         </div>
-      </div>
 
-      <div className="button-wrapper">
-        <button
-          disabled={!activeButton}
-          className="submit rounded-corners"
-          onClick={handleSubmit}
-        >
-          {activeButton === false
-            ? "Your log isn't ready for submit... "
-            : "Your log is ready for submit!"}
-        </button>
-      </div>
+        <div className="button-wrapper">
+          <button
+            disabled={!activeButton}
+            className="submit rounded-corners"
+            onClick={handleSubmit}
+            type="submit"
+          >
+            {activeButton === false
+              ? "Your log isn't ready for submit... "
+              : "Your log is ready for submit!"}
+          </button>
+        </div>
+      </form>
       {tableArray.length > 0 ? <Table tableArray={tableArray} /> : ""}
     </>
   );
