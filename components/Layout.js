@@ -84,14 +84,12 @@ export default function Layout(props) {
           </div>
         </div>
       </header>
-      <div className="page-container">
-        <main>{props.children}</main>
+      <main>{props.children}</main>
 
-        <footer className="footer">
-          <p>{year}</p>
-          <img src={footerGraphic} alt={footerGraphic} />
-        </footer>
-      </div>
+      <footer className="footer">
+        <p>{year}</p>
+        <img src={footerGraphic} alt={footerGraphic} />
+      </footer>
     </>
   );
 }
