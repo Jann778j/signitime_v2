@@ -18,10 +18,9 @@ table {
   }
 
   .client-header {
+    @extend %data-theme-transition-bg-only;
     background-color: $color-grey-light;
     font-weight: 500;
-    // border-top: 1px solid $color-grey;
-    // border-bottom: 1px solid $color-grey;
 
     [data-theme="dark"] & {
       background-color: $color-grey-dark;
@@ -90,6 +89,7 @@ table {
 
       [data-theme="dark"] & {
         @media (min-width: 700px) {
+          //Hover skal væk i mobil
           td:hover::before {
             background-color: darken($color-grey-dark, 10%);
           }
@@ -101,31 +101,33 @@ table {
     }
   }
 
-  @media (max-width: 700px) {
-    table tbody tr td {
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-    }
+  table tbody tr td {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
 
-    tr th:first-child,
-    tr td:first-child {
-      position: sticky;
-      left: 0;
-      z-index: 4;
-      // border-right: 1px solid;
-    }
-    .white-bg {
-      background-color: white;
-      [data-theme="dark"] & {
-        background-color: $color-black;
-      }
-    }
+  tr th:first-child,
+  tr td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 4;
+  }
 
-    .blue-bg {
-      background-color: $color-blue;
-      [data-theme="dark"] & {
-        background-color: $color-blue-text;
-      }
+  .white-bg {
+    @extend %data-theme-transition-bg-only;
+    background-color: white;
+
+    [data-theme="dark"] & {
+      background-color: $color-black;
+    }
+  }
+
+  .blue-bg {
+    @extend %data-theme-transition-bg-only;
+    background-color: $color-blue;
+
+    [data-theme="dark"] & {
+      background-color: $color-blue-text;
     }
   }
 }

@@ -6,6 +6,7 @@
 // limeCombo
 
 @mixin limeCombo($dark: "") {
+  @extend %data-theme-transition;
   background-color: $color-lime;
   color: $color-lime-text;
 
@@ -24,6 +25,7 @@
 // peachCombo
 
 @mixin peachCombo($dark: "") {
+  @extend %data-theme-transition;
   background-color: $color-peach;
   color: $color-peach-text;
 
@@ -42,6 +44,7 @@
 // roseCombo
 
 @mixin roseCombo($dark: "") {
+  @extend %data-theme-transition;
   background-color: $color-rose;
   color: $color-rose-text;
 
@@ -60,6 +63,7 @@
 // blueCombo
 
 @mixin blueCombo($dark: "") {
+  @extend %data-theme-transition;
   background-color: $color-blue;
   color: $color-blue-text;
 
@@ -78,6 +82,7 @@
 // purpleCombo
 
 @mixin purpleCombo($dark: "") {
+  @extend %data-theme-transition;
   background-color: $color-purple;
   color: $color-purple-text;
 

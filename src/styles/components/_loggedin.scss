@@ -193,6 +193,7 @@ input[type="number"] {
   justify-content: center;
 
   button {
+    @extend %data-theme-transition;
     @extend %padding10;
     border: none;
   }

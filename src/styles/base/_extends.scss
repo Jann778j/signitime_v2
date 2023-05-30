@@ -34,3 +34,17 @@
     padding-right: 10%;
   }
 }
+
+%data-theme-transition {
+  [data-theme] & {
+    transition-duration: 2s;
+    transition-property: background-color color;
+  }
+}
+
+%data-theme-transition-bg-only {
+  [data-theme] & {
+    transition-duration: 2s;
+    transition-property: background-color;
+  }
+}

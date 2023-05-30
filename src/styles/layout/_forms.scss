@@ -29,6 +29,11 @@ input {
   width: 100%;
 }
 
+input,
+textarea {
+  @extend %data-theme-transition;
+}
+
 [data-theme="dark"] {
   input,
   textarea {

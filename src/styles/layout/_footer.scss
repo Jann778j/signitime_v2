@@ -19,8 +19,16 @@ footer {
     width: 15%;
     height: auto;
 
+    [data-theme="dark"] & {
+      width: 10%;
+    }
+
     @media (max-width: 700px) {
       width: 30%;
+
+      [data-theme="dark"] & {
+        width: 20%;
+      }
     }
   }
 }
