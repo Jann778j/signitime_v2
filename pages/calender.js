@@ -123,7 +123,7 @@ export default function User(props) {
 
           return (
             <>
-              <td>{project.project_name}</td>
+              <td className="not-hover white-bg">{project.project_name}</td>
               {dayData}
             </>
           );
@@ -142,35 +142,39 @@ export default function User(props) {
       return (
         <div key={weekNumber}>
           <h2>Week {weekNumber}</h2>
-          <table className="calender-table">
-            <thead>
-              <tr>
-                <th></th>
-                {daysOfWeek.map((day) => (
-                  <th key={day} className={day}>
-                    {day}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            {clientData.map((client) => (
-              <tbody key={client.client_id}>
+          <div className="table-div">
+            <table className="calender-table">
+              <thead>
                 <tr>
-                  <td className="client-header">{client.client_name}</td>
-                  <td className="client-header"></td>
-                  <td className="client-header"></td>
-                  <td className="client-header"></td>
-                  <td className="client-header"></td>
-                  <td className="client-header"></td>
+                  <th></th>
+                  {daysOfWeek.map((day) => (
+                    <th key={day} className={day}>
+                      {day}
+                    </th>
+                  ))}
                 </tr>
-                {client.projects.map((project) => (
-                  <tr key={`${client.client_id}-${project.project_name}`}>
-                    {renderTableRows([project], weekNumber)}
+              </thead>
+              {clientData.map((client) => (
+                <tbody key={client.client_id}>
+                  <tr>
+                    <td className="client-header not-hover">
+                      {client.client_name}
+                    </td>
+                    <td className="client-header"></td>
+                    <td className="client-header"></td>
+                    <td className="client-header"></td>
+                    <td className="client-header"></td>
+                    <td className="client-header"></td>
                   </tr>
-                ))}
-              </tbody>
-            ))}
-          </table>
+                  {client.projects.map((project) => (
+                    <tr key={`${client.client_id}-${project.project_name}`}>
+                      {renderTableRows([project], weekNumber)}
+                    </tr>
+                  ))}
+                </tbody>
+              ))}
+            </table>
+          </div>
 
           <div className="total-hours hours-padding">
             Total hours:
