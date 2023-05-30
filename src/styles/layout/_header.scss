@@ -19,6 +19,7 @@ header {
   }
   @media (max-width: 700px) {
     background-color: $color-white;
+
     .logo {
       width: 80px;
       padding-bottom: 10px;
@@ -43,13 +44,13 @@ header {
   }
 
   .calender-link {
-    margin-right: 1em;
+    margin-right: 20px;
   }
 
   .user-link {
     display: flex;
     align-items: flex-end;
-    margin-right: 1.5em;
+    margin-right: 20px;
   }
 
   //------------------------------------------------------------------------------

@@ -39,8 +39,9 @@ button {
   transition: opacity 0.3s ease-in-out;
   width: 300px;
 
-  &:hover {
-    opacity: 0.7;
+  @media (min-width: 700px) {
+    &:hover {
+      opacity: 0.7;
+    }
   }
 }
-

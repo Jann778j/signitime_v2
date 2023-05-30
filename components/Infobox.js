@@ -10,6 +10,10 @@ export default function Infobox() {
             <li>Pick the associated project</li>
             <li>Fill in the hours you've spent</li>
             <li>Add a note of the exact work you've done</li>
+            <li>
+              The button beneath will be active, when you've fulfilled the form
+            </li>
+            <li>When you have added all your tasks, click "Save for today"</li>
           </ol>
           <p>And that's it! Easy peasy lemon squeezy, your duty is done!</p>
         </div>

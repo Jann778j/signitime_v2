@@ -41,9 +41,11 @@ export default function User(props) {
 
   const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri"];
 
-  // Find unikke ugenumre baseret på arbejdstabeller
+  // Find unikke ugenumre baseret på arbejdstabeller. Sorter dem så højeste ugetal kommer først
   const renderTables = () => {
-    const weekNumbers = [...new Set(workingTables.map((item) => item.week))];
+    const weekNumbers = [
+      ...new Set(workingTables.map((item) => item.week)),
+    ].sort((a, b) => b - a);
 
     // her mapper vi igennem de forskellige ugenumre og filtrere gennem workingtables hvilke timer der hører til de forkellige ugenumre
     // herefter bliver de matchende elemter gemt i variablen kaldet "mathingItems"

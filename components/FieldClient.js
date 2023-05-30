@@ -2,9 +2,11 @@ export default function FieldClient(props) {
   return (
     <div onClick={props.handleClick} className="dropdown">
       <div className="dropdown-title title">
-        {props.choosenClient.length === 0
-          ? "1. Add client"
-          : props.choosenClient.name}
+        {props.choosenClient.length === 0 ? (
+          <span className="bold">1. Add client</span>
+        ) : (
+          props.choosenClient.name
+        )}
         <span className="arrow">↓</span>
       </div>
       <div className="dropdown-content-container">

@@ -13,8 +13,6 @@ table {
     margin-top: 40px;
   }
 
- 
-
   .table-day {
     @include blueCombo();
   }
@@ -55,46 +53,51 @@ table {
   tbody {
     tr {
       //Row
-      td:not(.not-hover){
-        &:hover {
-          &::before {
-             background-color: #faf8f6;
-            content: "";
-            height: 100%;
-            left: -5000px;
-            position: absolute;
-            top: 0;
-            width: 10000px;
-            z-index: -2;
+      td:not(.not-hover) {
+        @media (min-width: 700px) {
+          &:hover {
+            &::before {
+              background-color: #faf8f6;
+              content: "";
+              height: 100%;
+              left: -5000px;
+              position: absolute;
+              top: 0;
+              width: 10000px;
+              z-index: -2;
+            }
           }
         }
       }
 
       //Column
       td:not(.not-hover) {
-        &:hover {
-          &::after{
-            background-color: #faf8f6;
-            content: "";
-            height: 10000px;
-            left: 0;
-            position: absolute;
-            top: -5000px;
-            width: 100%;
-            z-index: -1;
+        @media (min-width: 700px) {
+          &:hover {
+            &::after {
+              background-color: #faf8f6;
+              content: "";
+              height: 10000px;
+              left: 0;
+              position: absolute;
+              top: -5000px;
+              width: 100%;
+              z-index: -1;
+            }
           }
-        }
-      
-      }
-      [data-theme="dark"] & {
-        td:hover::before {
-          background-color: darken($color-grey-dark, 10%);
-        }
-        td:hover::after {
-          background-color: darken($color-grey-dark, 10%);
         }
       }
 
+      [data-theme="dark"] & {
+        @media (min-width: 700px) {
+          td:hover::before {
+            background-color: darken($color-grey-dark, 10%);
+          }
+          td:hover::after {
+            background-color: darken($color-grey-dark, 10%);
+          }
+        }
+      }
     }
   }
 
@@ -102,40 +105,34 @@ table {
     table tbody tr td {
       word-wrap: break-word;
       overflow-wrap: break-word;
-      
     }
 
-    tr th:first-child, 
+    tr th:first-child,
     tr td:first-child {
       position: sticky;
       left: 0;
       z-index: 4;
       // border-right: 1px solid;
-}
-.white-bg {
-  background-color: white;
-  [data-theme="dark"] & {
-          background-color: $color-black;
+    }
+    .white-bg {
+      background-color: white;
+      [data-theme="dark"] & {
+        background-color: $color-black;
       }
-      
+    }
 
-}
-
-.blue-bg {
-  background-color: $color-blue;
-  [data-theme="dark"] & {
-          background-color: $color-blue-text;
+    .blue-bg {
+      background-color: $color-blue;
+      [data-theme="dark"] & {
+        background-color: $color-blue-text;
       }
+    }
+  }
 }
-
-}
-
-}
-
 
 .table-div {
-    overflow-x: auto;
-  }
+  overflow-x: auto;
+}
 .total-hours {
   @extend %padding10;
   display: flex;

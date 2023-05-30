@@ -52,8 +52,10 @@
   text-decoration: none;
   transition: background-size 0.35s ease-in-out;
 
-  &:hover {
-    background-size: 100% 0.0625rem;
+  @media (min-width: 700px) {
+    &:hover {
+      background-size: 100% 0.0625rem;
+    }
   }
 
   [data-theme="dark"] & {
