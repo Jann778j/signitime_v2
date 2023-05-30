@@ -10,26 +10,27 @@ export default function Table(props) {
 
   return (
     <>
-      <table>
-        <thead className="table-day">
-          <tr>
-            <th>Client</th>
-            <th>Project</th>
-            <th>Hours</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          {props.tableArray.map((log) => (
+      <div className="table-div">
+        <table>
+          <thead className="table-day">
             <tr>
-              <td>{log.client_name}</td>
-              <td>{log.project_name}</td>
-              <td>{log.hours}</td>
-              <td>{log.notes}</td>
+              <th className="not-hover blue-bg">Client</th>
+              <th>Project</th>
+              <th>Hours</th>
+              <th>Notes</th>
             </tr>
-          ))}
-        </tbody>
-        {/* <tfoot>
+          </thead>
+          <tbody>
+            {props.tableArray.map((log) => (
+              <tr>
+                <td className="not-hover white-bg">{log.client_name}</td>
+                <td>{log.project_name}</td>
+                <td>{log.hours}</td>
+                <td>{log.notes}</td>
+              </tr>
+            ))}
+          </tbody>
+          {/* <tfoot>
           <tr>
             <th></th>
             <th></th>
@@ -37,7 +38,8 @@ export default function Table(props) {
             <th></th>
           </tr>
         </tfoot> */}
-      </table>
+        </table>
+      </div>
       <div className="total-hours">
         Total hours: <span className="marked">{totalHours}</span>
       </div>

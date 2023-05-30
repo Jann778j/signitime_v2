@@ -110,7 +110,7 @@ table {
       position: sticky;
       left: 0;
       z-index: 4;
-      border-right: 1px solid;
+      // border-right: 1px solid;
 }
 .white-bg {
   background-color: white;
@@ -119,6 +119,13 @@ table {
       }
       
 
+}
+
+.blue-bg {
+  background-color: $color-blue;
+  [data-theme="dark"] & {
+          background-color: $color-blue-text;
+      }
 }
 
 }
