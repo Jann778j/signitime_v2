@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 // TABLES
-//------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 
 table {
   @extend %grey-border;
@@ -12,6 +12,8 @@ table {
   &:not(.calender-table) {
     margin-top: 40px;
   }
+
+ 
 
   .table-day {
     @include blueCombo();
@@ -92,6 +94,7 @@ table {
           background-color: darken($color-grey-dark, 10%);
         }
       }
+
     }
   }
 
@@ -112,10 +115,9 @@ table {
 .white-bg {
   background-color: white;
   [data-theme="dark"] & {
-
           background-color: $color-black;
-        
       }
+      
 
 }
 

@@ -5,4 +5,14 @@
 main {
   @extend %base-screen-padding;
   margin-top: 20vh;
+  padding-bottom: 10%;
 }
+
+
+ @media (max-width: 700px){
+
+  main{
+    margin-top: 12vh;
+     padding-bottom: 30%;
+    }
+ }
