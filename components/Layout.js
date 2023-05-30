@@ -53,7 +53,10 @@ export default function Layout(props) {
     <>
       <Head>
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-        <meta name="robots" content="noindex" maximum-scale="1" />
+        <meta
+          name="robots"
+          content="noindex, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
         <title>SigniTime</title>
       </Head>
       <header>
