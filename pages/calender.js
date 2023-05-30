@@ -65,7 +65,7 @@ export default function User(props) {
         const existingClient = clientData.find(
           (client) => client.client_id === item.client_id
         );
-        console.log(typeof existingClient);
+
         //her søger den efter om der også er et matchene projekt.
         if (existingClient) {
           const existingProject = existingClient.projects.find(
