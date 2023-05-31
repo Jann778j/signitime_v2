@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 export default function SignIn(props) {
-  const [logo, setLogo] = useState("");
+  const [logo, setLogo] = useState(""); // Opretter en logo-variabel og en setLogo-funktion ved hjælp af useState
 
   useEffect(() => {
-    const theme = localStorage.getItem("data-theme");
+    const theme = localStorage.getItem("data-theme"); // Henter temaet fra localStorage
 
     if (theme === "dark") {
-      setLogo("logo-dark.svg");
+      setLogo("logo-dark.svg"); // Hvis temaet er "dark", sættes logoet til "logo-dark.svg"
     } else {
-      setLogo("logo.svg");
+      setLogo("logo.svg"); // Ellers sættes logoet til "logo.svg"
     }
   }, []);
 
   const handleForgotPassword = () => {
     alert(
       "Email: jofh@kea.dk  |  Password: kea \nEmail: censor@kea.dk  |  Password: kea"
-    );
+    ); // Viser en alert med prøve-e-mail og -adgangskode
   };
 
   return (

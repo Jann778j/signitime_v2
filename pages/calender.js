@@ -3,7 +3,7 @@ import { parseISO, getWeek, format } from "date-fns";
 import NotLoggedIn from "@/components/NotLoggedIn";
 
 export default function User(props) {
-  const [workingTables, setWorkingTables] = useState([]);
+  const [workingTables, setWorkingTables] = useState([]); // State hook til at gemme logs
 
   useEffect(() => {
     async function getData() {
@@ -28,18 +28,18 @@ export default function User(props) {
       //vi bruger den til at fodele de loggede timer ud på de rigtige dage????
       const logsWithParsedDates = logsForInitial.map((item) => ({
         ...item,
-        created_at: parseISO(item.created_at),
-        week: getWeek(parseISO(item.created_at)),
-        day: format(parseISO(item.created_at), "EEE"),
+        created_at: parseISO(item.created_at), // Konverterer created_at datoer til JavaScript Date objekter ved hjælp af parseISO fra date-fns
+        week: getWeek(parseISO(item.created_at)), // Får ugenummeret fra en given dato ved hjælp af getWeek fra date-fns
+        day: format(parseISO(item.created_at), "EEE"), // Får dagen i ugen i forkortet form (f.eks. "Mon", "Tue") ved hjælp af format fra date-fns
       }));
 
-      setWorkingTables(logsWithParsedDates);
+      setWorkingTables(logsWithParsedDates); // Opdaterer arbejdstabellerne med hentede data
     }
 
     getData();
   }, []);
 
-  const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri"]; // Array med ugedage
 
   // Find unikke ugenumre baseret på arbejdstabeller. Sorter dem så højeste ugetal kommer først
   const renderTables = () => {

@@ -9,16 +9,16 @@ export default function LoginPage(props) {
 
   useEffect(() => {
     async function getData() {
-      const { data, error } = await props.supabase.from("signitime-users")
+      const { data, error } = await props.supabase.from("signitime-users") // Henter data fra "signitime-users" tabel i Supabase
         .select(`
           first_name, last_name, password, initials, email, created_at
           `);
 
       const logsWithParsedDates = data.map((item) => ({
         ...item,
-        created_at: parseISO(item.created_at),
+        created_at: parseISO(item.created_at), // Konverterer created_at datoer til JavaScript Date objekter ved hjælp af parseISO fra date-fns
       }));
-      props.setUsers(logsWithParsedDates);
+      props.setUsers(logsWithParsedDates); // Opdaterer users state med hentede data og konverterede datoer
     }
     getData();
   }, []);

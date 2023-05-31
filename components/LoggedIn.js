@@ -11,7 +11,7 @@ import Table from "./Table";
 import Infobox from "./Infobox";
 
 export default function LoggedIn(props) {
-  const [clients, setClients] = useState([]);
+  const [clients, setClients] = useState([]); // Opretter tilstanden 'clients' og en funktion 'setClients' til at opdatere tilstanden
   const [projects, setProjects] = useState([]);
   const [choosenClient, setChoosenClient] = useState([]);
   const [choosenProject, setChoosenProject] = useState([]);
@@ -65,13 +65,17 @@ export default function LoggedIn(props) {
           initials: props.user.initials,
         });
 
+      //når data succesfuldt indsendes til databasen, vil det tilføje det indsendte data til tableArray, nulstille de valgte klienter og projekter samt timer og noter i formularen. Dette giver brugeren mulighed for at fortsætte med at indsende nye data uden at skulle rydde op i formularen manuelt.
       if (!error) {
         const newData = {
+          //En ny variabel newData oprettes som et objekt, der indeholder værdierne for klientnavn (client_name), projektnavn (project_name), antal timer (hours) og noter (notes).
           client_name: choosenClient.name,
           project_name: choosenProject.name,
           hours: hours,
           notes: notes,
         };
+        //setTableArray-funktionen kaldes for at opdatere tableArray-tilstanden ved at tilføje det nye objekt newData til slutningen af den tidligere tilstandsarray (prevTableArray).
+        //setChoosenClient, setChoosenProject, setHours og setNotes bliver kaldt med tomme værdier eller nul for at nulstille tilstandene til deres oprindelige værdier. Dette forbereder formularen til den næste indsendelse.
         setTableArray((prevTableArray) => [...prevTableArray, newData]);
         setChoosenClient([]);
         setChoosenProject([]);
@@ -83,7 +87,7 @@ export default function LoggedIn(props) {
     insertData();
   };
 
-  const day = format(new Date(), "do 'of' MMM"); // Setting the welcoming date
+  const day = format(new Date(), "do 'of' MMM"); // Indstiller datoen for dagens velkomstbesked
 
   //Toggle display block on dropdown
   const handleClick = (evt) => {
