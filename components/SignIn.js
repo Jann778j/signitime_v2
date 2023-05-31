@@ -13,7 +13,9 @@ export default function SignIn(props) {
   }, []);
 
   const handleForgotPassword = () => {
-    alert("Email: th@signifly.com  |  Password: signifly");
+    alert(
+      "Email: jofh@kea.dk  |  Password: kea \nEmail: censor@kea.dk  |  Password: kea"
+    );
   };
 
   return (
