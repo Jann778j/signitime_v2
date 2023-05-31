@@ -91,11 +91,12 @@ export default function Layout(props) {
           </div>
         </div>
       </header>
-      <main>{props.children}</main>// Viser hovedindholdet
+      <main>{props.children}</main>
+      {/* // Viser hovedindholdet */}
       <footer className="footer">
         <p>{year}</p>
         <img src={footerGraphic} alt={footerGraphic} />
-        // Viser fodgrafik-billede
+        {/* // Viser fodgrafik-billede */}
       </footer>
     </>
   );
