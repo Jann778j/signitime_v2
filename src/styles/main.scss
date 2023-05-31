@@ -1,3 +1,5 @@
+// HER IMPORTERER VI VORES SASS-PARTIALS
+
 // Base
 @import "base/typography";
 @import "base/variables";
@@ -35,11 +37,13 @@ a {
   cursor: pointer;
 }
 
+// Generelt knap-styling
 button {
   width: 300px;
   transition: opacity 0.3s ease-in-out;
 
   @media (min-width: 700px) {
+    //Hover virker kun fra 700px og op
     &:hover {
       opacity: 0.7;
     }

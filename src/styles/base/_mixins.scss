@@ -10,11 +10,14 @@
   background-color: $color-lime;
   color: $color-lime-text;
 
+  // Hvis man kalder mixin'et med parametret dark, bliver farverne omvendt af hinanden
+  // Det kunne se sådan ud: @include limeCombo(dark);
   @if $dark == "dark" {
     background-color: $color-lime-text;
     color: $color-lime;
   }
 
+  // Hvis der er darkmode, bliver farven omvendt af hinanden
   [data-theme="dark"] & {
     background-color: $color-lime-text;
     color: $color-lime;
@@ -42,7 +45,6 @@
 
 //------------------------------------------------------------------------------
 // roseCombo
-
 @mixin roseCombo($dark: "") {
   @extend %data-theme-transition;
   background-color: $color-rose;

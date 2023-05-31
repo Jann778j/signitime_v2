@@ -1,6 +1,8 @@
 //------------------------------------------------------------------------------
 // TYPOGRAPHY
 //------------------------------------------------------------------------------
+
+// Her henter vi Signifly's font
 @font-face {
   font-family: "Aeonik";
   src: url("Aeonik-Regular.woff2") format("woff2"),
@@ -9,6 +11,7 @@
   font-style: normal;
 }
 
+// Alt tekst skal anvende denne
 * {
   font-family: "Aeonik", Arial, Helvetica, sans-serif;
 }
@@ -35,6 +38,7 @@ a {
   color: black;
 }
 
+// Klassen marked, som vi ser på eks. LoggedIn.js og user.js
 .marked {
   font-weight: 500;
   text-decoration: underline;

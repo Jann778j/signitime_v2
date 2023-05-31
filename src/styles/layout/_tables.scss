@@ -13,10 +13,13 @@ table {
     margin-top: 40px;
   }
 
+  // Tabellen på index.js skal være blå i toppen
   .table-day {
     @include blueCombo();
   }
 
+  // Denne header er i calender.js
+  // Headeren viser client(kunde)
   .client-header {
     @extend %data-theme-transition-bg-only;
     background-color: $color-grey-light;
@@ -54,6 +57,7 @@ table {
       //Row
       td:not(.not-hover) {
         @media (min-width: 700px) {
+          //Hover virker kun fra 700px og op
           &:hover {
             &::before {
               background-color: #faf8f6;
@@ -72,6 +76,7 @@ table {
       //Column
       td:not(.not-hover) {
         @media (min-width: 700px) {
+          //Hover virker kun fra 700px og op
           &:hover {
             &::after {
               background-color: #faf8f6;
@@ -89,7 +94,7 @@ table {
 
       [data-theme="dark"] & {
         @media (min-width: 700px) {
-          //Hover skal væk i mobil
+          //Hover virker kun fra 700px og op
           td:hover::before {
             background-color: darken($color-grey-dark, 10%);
           }
@@ -113,15 +118,17 @@ table {
     z-index: 4;
   }
 
+  // Calender.js tabel
   .white-bg {
     @extend %data-theme-transition-bg-only;
-    background-color: white;
+    background-color: $color-white;
 
     [data-theme="dark"] & {
       background-color: $color-black;
     }
   }
 
+  //  Forside-tabel
   .blue-bg {
     @extend %data-theme-transition-bg-only;
     background-color: $color-blue;
@@ -132,9 +139,12 @@ table {
   }
 }
 
+// Her wrapper vi vores tabel i div
+// Vi vil gerne kunne scrolle i den
 .table-div {
   overflow-x: auto;
 }
+
 .total-hours {
   @extend %padding10;
   display: flex;

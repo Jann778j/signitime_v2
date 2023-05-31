@@ -24,8 +24,13 @@
 }
 
 // color-combo w. days
+// .Mon kommer fra tabel i calender.js
+// .monday kommer fra LoggedIn.js
+
 .monday,
 .Mon {
+  // Mixin'ene tilpasser sig automatisk darkmode
+  // Kig i _mixin.scss for uddybende info
   @include peachCombo();
 }
 
@@ -49,6 +54,8 @@
   @include purpleCombo();
 }
 
+// Denne er hover-effekten fra Signifly's site
+// Vi bruger den på NotLoggedIn.js, hvor der står "Go to login"
 .hover-line {
   background-image: linear-gradient($color-black, $color-black);
   background-position: 0 100%;
@@ -60,6 +67,7 @@
   transition: background-size 0.35s ease-in-out;
 
   @media (min-width: 700px) {
+    //Hover virker kun fra 700px og op
     &:hover {
       background-size: 100% 0.0625rem;
     }

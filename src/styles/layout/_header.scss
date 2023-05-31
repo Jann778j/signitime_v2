@@ -19,6 +19,7 @@ header {
     height: auto;
   }
 
+  //Header får baggrund i mobil
   @media (max-width: 700px) {
     background-color: $color-white;
 

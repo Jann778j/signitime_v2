@@ -35,6 +35,11 @@
   }
 }
 
+//------------------------------------------------------------------------------
+// TRANSITIONER-extends vi har kaldt diverse steder
+// Sørger for, at transitionen flyder bedre, når der ændres i data-theme
+
+//Denne forholder sig til, at der sker forandringer i både baggrund og tekstfarve
 %data-theme-transition {
   [data-theme] & {
     transition-duration: 0.3s;
@@ -42,6 +47,7 @@
   }
 }
 
+//Denne forholder sig til, at der sker forandringer kun på baggrund
 %data-theme-transition-bg-only {
   [data-theme] & {
     transition-duration: 0.3s;

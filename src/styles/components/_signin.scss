@@ -14,6 +14,7 @@
   top: 0;
   left: 0;
 
+  // Regler v. dark-mode
   [data-theme="dark"] & {
     background: $color-black;
     * {
@@ -45,6 +46,7 @@ input {
   }
 }
 
+// Signitime logo på login
 .logo {
   margin-right: 20px;
 
@@ -71,11 +73,12 @@ input {
   margin-top: 5px;
 }
 
+// Styling for vores invalid password or email
 .invalid {
   @extend %padding10;
   @include peachCombo();
   margin-bottom: 10px;
-  display: none;
+  display: none; // Får display block hvis man taster kode/email forkert. Sker i index.js
 }
 
 .signin-btn {

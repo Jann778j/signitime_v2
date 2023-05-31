@@ -19,6 +19,8 @@ footer {
     width: 15%;
     height: auto;
 
+    // Figuren ændres i dark-theme
+    // Dette kræver ny størrelse på den
     [data-theme="dark"] & {
       width: 10%;
     }
@@ -26,14 +28,11 @@ footer {
     @media (max-width: 700px) {
       width: 30%;
 
+      // Figuren ændres i dark-theme
+      // Dette kræver ny størrelse på den
       [data-theme="dark"] & {
         width: 20%;
       }
     }
   }
-}
-
-.page-container {
-  position: relative;
-  min-height: 100vh;
 }

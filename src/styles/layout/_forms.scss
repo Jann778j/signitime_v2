@@ -2,16 +2,19 @@
 // FORMS
 //------------------------------------------------------------------------------
 
+//Gælder både login + time-formular
 .form-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 
+  //Skal kun være én kolonne i mobil
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
   }
 }
 
+// dette er vores "Min. 20 characters"-styling
 .fig {
   color: $color-grey;
 }
@@ -19,6 +22,8 @@
 //------------------------------------------------------------------------------
 // General input styling
 
+// Elementer med denne klasse får runde hjørner
+// Fx. input og knapper
 .rounded-corners {
   @extend %padding10;
   border-radius: 200px;
@@ -42,11 +47,12 @@ textarea {
   }
 }
 
+// Her tilpasser vi vores focus
+// Er tydeligt når man anvender tab på tastatur el. klikker på input-felter
 *:focus-visible,
 textarea:focus-visible,
 button:focus-visible {
   border: 3px solid;
   border-color: $color-purple;
-  box-shadow: 0 0 3px $color-lime; /* Add a box shadow to mimic the focus effect */
   outline: none !important;
 }

@@ -10,12 +10,15 @@
   justify-content: center;
   top: 0;
   left: 0;
+
+  //Default er baggrund hvid. Fx i weekender
   background: $color-white;
   height: 100vh;
   width: 100vw;
   z-index: 5;
 
   [data-theme="dark"] & {
+    //Default skifter baggrund til sort. Fx i weekender
     background: $color-black;
   }
 
@@ -38,6 +41,7 @@
     margin-right: 1em;
   }
 
+  // Denne holder på vores figur
   .img_wrapper {
     height: 100vh;
     width: 100vw;
@@ -48,6 +52,7 @@
     align-items: flex-end;
     justify-content: flex-end;
 
+    // Figuren placeres anderledes/centreres i mobil
     @media (max-width: 700px) {
       position: static;
       justify-content: center;
@@ -56,6 +61,7 @@
     }
   }
 
+  //Regler for figur str.
   img {
     width: 20%;
     padding-bottom: 45px;
@@ -74,6 +80,9 @@
     }
   }
 
+  // &.klassenavn betyder at det yderste element(submit-screeen) OGSÅ har den klassen klassenavn
+
+  // Regler for mandag figur
   &.monday {
     @include peachCombo();
 
@@ -84,7 +93,7 @@
         border: 1px solid $color-peach;
       }
     }
-
+    //Alt efter hvilken dag, skal figuren ligg i den en el. anden side af skærmen
     .img_wrapper {
       justify-content: flex-end;
       left: -60px;
@@ -95,6 +104,7 @@
     }
   }
 
+  // Regler for tirsdag figur
   &.tuesday {
     @include limeCombo();
 
@@ -115,6 +125,7 @@
     }
   }
 
+  // Regler for onsdag figur
   &.wednesday {
     @include roseCombo();
 
@@ -134,6 +145,7 @@
     }
   }
 
+  // Regler for torsdag figur
   &.thursday {
     @include blueCombo();
 
@@ -154,6 +166,7 @@
     }
   }
 
+  // Regler for fredag figur
   &.friday {
     @include purpleCombo();
 

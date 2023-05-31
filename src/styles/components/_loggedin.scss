@@ -6,6 +6,7 @@ h1 {
   margin-bottom: 5%;
 }
 
+// Titler på felter
 .title:not(.comment-title) {
   @extend %padding10;
   height: 100%;
@@ -59,6 +60,7 @@ h1 {
   }
 }
 
+// Når dropdown er "aktiv", bliver dette synligt på drop-down titel der får dette mixin
 .dropdown-title {
   .display-content & {
     @include roseCombo();
@@ -88,6 +90,7 @@ h1 {
     color: $color-white;
   }
 }
+
 .dropdown {
   cursor: pointer;
 
@@ -97,9 +100,12 @@ h1 {
     }
 
     @media (min-width: 700px) {
+      //Hover virker kun fra 700px og op
       &:hover {
         .arrow {
-          transform: translateY(10%);
+          transform: translateY(
+            10%
+          ); // Pil v. dropdown bevæger sig lidt ned v. hover
         }
       }
     }
@@ -129,6 +135,8 @@ h1 {
     transition: background-color 0.35s ease-in-out;
 
     @media (min-width: 700px) {
+      //Hover virker kun fra 700px og op
+      //Styling for indhold i dropdown når man hover
       &:hover {
         background-color: $color-grey-light;
 
@@ -152,6 +160,7 @@ h1 {
 }
 
 @media (min-width: 700px) {
+  //Hover virker kun fra 700px og op
   .hours:hover {
     background-color: $color-grey-light;
 
@@ -161,6 +170,7 @@ h1 {
   }
 }
 
+// Her "resetter" vi timetal
 input[type="number"] {
   border: none;
   text-align: center;
@@ -168,6 +178,7 @@ input[type="number"] {
   margin: 0;
   padding: 0;
 
+  // Vi fjerne default pile v. number-input
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
     appearance: none;
@@ -203,6 +214,7 @@ input[type="number"] {
     border: none;
   }
 
+  // Submit-knap når den ikke er aktiv
   button[disabled] {
     pointer-events: none;
     background: none;
@@ -213,6 +225,7 @@ input[type="number"] {
     }
   }
 
+  // Submit-knap når den er aktiv
   button:not([disabled]) {
     @include limeCombo();
     cursor: pointer;
