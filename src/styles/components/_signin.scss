@@ -28,7 +28,6 @@
     text-align: right;
     display: block;
     margin-bottom: 20px;
-    margin-top: -10px;
   }
 }
 
@@ -70,6 +69,13 @@ input {
   @extend %padding10;
   margin-bottom: 20px;
   margin-top: 5px;
+}
+
+.invalid {
+  @extend %padding10;
+  @include peachCombo();
+  margin-bottom: 10px;
+  display: none;
 }
 
 .signin-btn {

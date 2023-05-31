@@ -28,7 +28,7 @@ export default function SignIn(props) {
           <label>
             Email
             <input
-              className="rounded-corners"
+              className="rounded-corners dark-mode"
               type="email"
               value={props.email}
               onChange={(e) => props.setEmail(e.target.value)} // Opdaterer e-mail ved ændring
@@ -37,12 +37,13 @@ export default function SignIn(props) {
           <label>
             Password
             <input
-              className="rounded-corners"
+              className="rounded-corners dark-mode"
               type="password"
               value={props.password}
               onChange={(e) => props.setPassword(e.target.value)} // Opdaterer password ved ændring
             />
           </label>
+          <p className="invalid">Invalid email or password</p>
           <a onClick={handleForgotPassword}>Forgot your password?</a>
           <button
             onClick={props.handleLogin}

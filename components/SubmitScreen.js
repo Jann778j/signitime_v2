@@ -50,13 +50,15 @@ export default function SubmitScreen(props) {
       <div className="button-wrapper">
         <button
           onClick={() => props.setClick(false)}
-          className="submit rounded-corners"
+          className="submit rounded-corners dark-mode"
         >
           Cool
         </button>
 
         <Anchor href="/calender">
-          <button className="submit rounded-corners">Go to overiew</button>
+          <button className="submit rounded-corners dark-mode">
+            Go to overiew
+          </button>
         </Anchor>
       </div>
       <div className="img_wrapper">

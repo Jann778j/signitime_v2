@@ -37,14 +37,14 @@
 
 %data-theme-transition {
   [data-theme] & {
-    transition-duration: 2s;
+    transition-duration: 0.3s;
     transition-property: background-color color;
   }
 }
 
 %data-theme-transition-bg-only {
   [data-theme] & {
-    transition-duration: 2s;
+    transition-duration: 0.3s;
     transition-property: background-color;
   }
 }

@@ -79,6 +79,7 @@ export default function Layout(props) {
           </Anchor>
           <div className="toggle-container">
             <input
+              className="dark-mode"
               type="checkbox"
               id="switch"
               name="theme"

@@ -31,13 +31,6 @@ h1 {
     width: 100%;
     height: 100%;
   }
-
-  //   textarea:focus-visible {
-  //   /* Custom focus border color */
-  //   border-color: $color-lime;
-  //   box-shadow: 0 0 3px $color-lime; /* Add a box shadow to mimic the focus effect */
-  //    outline: none !important;
-  // }
 }
 
 //------------------------------------------------------------------------------
@@ -52,19 +45,23 @@ h1 {
 
 .dropdown-title,
 .hours {
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.35s ease-in-out;
   cursor: pointer;
 
   @media (min-width: 700px) {
     &:hover {
       background-color: $color-grey-light;
+
+      [data-theme="dark"] & {
+        background-color: $color-grey-dark;
+      }
     }
   }
 }
 
 .dropdown-title {
   .display-content & {
-    background-color: $color-rose;
+    @include roseCombo();
   }
 }
 
@@ -129,11 +126,15 @@ h1 {
   .dropdown-content {
     display: block;
     z-index: 2;
-    transition: background-size 0.35s ease-in-out;
+    transition: background-color 0.35s ease-in-out;
 
     @media (min-width: 700px) {
       &:hover {
         background-color: $color-grey-light;
+
+        [data-theme="dark"] & {
+          background-color: $color-grey-dark;
+        }
       }
     }
   }
@@ -153,6 +154,10 @@ h1 {
 @media (min-width: 700px) {
   .hours:hover {
     background-color: $color-grey-light;
+
+    [data-theme="dark"] & {
+      background-color: $color-grey-dark;
+    }
   }
 }
 

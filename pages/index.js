@@ -30,6 +30,8 @@ export default function LoginPage(props) {
         // Tjekker om email og password matcher en bruger
         props.setLoggedIn(true); // Opdaterer logget-ind status til true
         props.setUser(user); // Opdaterer den aktive bruger
+      } else {
+        document.querySelector(".invalid").style.display = "block";
       }
     });
   };
