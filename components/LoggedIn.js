@@ -118,6 +118,7 @@ export default function LoggedIn(props) {
               clients={clients}
               choosenClient={choosenClient}
               setChoosenClient={setChoosenClient}
+              setChoosenProject={setChoosenProject}
               handleClick={handleClick}
             />
             <FieldClientProjects

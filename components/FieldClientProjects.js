@@ -6,7 +6,7 @@ export default function FieldClientProjects(props) {
   return (
     <div onClick={props.handleClick} className="dropdown">
       <div className="dropdown-title title">
-        {props.choosenProject.length === 0
+        {props.choosenProject.length === 0 || !props.choosenProject.name
           ? "2. Add project"
           : props.choosenProject.name}
         <span className="arrow">↓</span>

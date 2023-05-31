@@ -13,7 +13,10 @@ export default function FieldClient(props) {
         {props.clients.map((client) => (
           <div
             className="dropdown-content"
-            onClick={() => props.setChoosenClient(client)}
+            onClick={() => {
+              props.setChoosenClient(client);
+              props.setChoosenProject({});
+            }}
             key={client.client_id}
           >
             {client.name}
