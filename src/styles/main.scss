@@ -49,3 +49,44 @@ button {
     }
   }
 }
+
+// log
+
+.display-log {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(172, 170, 170, 0.41);
+  z-index: 100;
+  padding: 40%;
+
+  .log-container {
+    padding-bottom: 30%;
+    padding-top: 10%;
+    padding-right: 20%;
+    padding-left: 20%;
+    position: absolute;
+    background-color: $color-white;
+    z-index: 101;
+
+    .luk {
+      margin-bottom: 50px;
+      text-align: right;
+    }
+
+    .log {
+      @extend %grey-border;
+      @extend %padding10;
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

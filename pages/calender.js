@@ -4,7 +4,7 @@ import NotLoggedIn from "@/components/NotLoggedIn";
 
 export default function User(props) {
   const [workingTables, setWorkingTables] = useState([]); // State hook til at gemme logs
-
+  const [displayedLogs, setDisplayedLogs] = useState([]);
   useEffect(() => {
     async function getData() {
       const { data, error } = await props.supabase.from("signitime-logs")
@@ -14,7 +14,8 @@ export default function User(props) {
           client_name,
           client_id,
           project_name,
-          created_at
+          created_at,
+          notes 
         `);
 
       // Filter logs for the active user
@@ -41,6 +42,24 @@ export default function User(props) {
 
   const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri"]; // Array med ugedage
 
+  const showLog = (day, weekNumber, project) => {
+    return () => {
+      const logs = workingTables.filter(
+        (log) =>
+          log.day === day &&
+          log.week === weekNumber &&
+          log.project_name == project.project_name
+      );
+      setDisplayedLogs(logs);
+    };
+  };
+
+  const emptyArray = () => {
+    console.log("hey");
+    setDisplayedLogs([]);
+  };
+
+  console.log("Hey", displayedLogs);
   // Find unikke ugenumre baseret på arbejdstabeller. Sorter dem så højeste ugetal kommer først
   const renderTables = () => {
     const weekNumbers = [
@@ -55,8 +74,6 @@ export default function User(props) {
       );
 
       const clientData = [];
-
-      // console.log(matchingItems.projects);
 
       // Iterer over matchende elementer og organiser dem efter klient og projekt
       // Inden for hver iteration genereres en nøgle ved at kombinere client_id og project_name for det aktuelle element.
@@ -117,9 +134,15 @@ export default function User(props) {
             });
 
             return (
-              <td className="text-center" key={day}>
-                {totalHours.toLocaleString("da-DK")}
-              </td>
+              <>
+                <td
+                  onClick={showLog(day, weekNumber, project)}
+                  className="text-center"
+                  key={day}
+                >
+                  {totalHours.toLocaleString("da-DK")}
+                </td>
+              </>
             );
           });
 
@@ -130,6 +153,7 @@ export default function User(props) {
             </>
           );
         });
+
         return projectData;
       };
 
@@ -197,6 +221,24 @@ export default function User(props) {
             <h1>Here is your weekly overview, {props.user.first_name}</h1>
           </div>
           {renderTables()}
+          {displayedLogs.length > 0 && (
+            <div className="display-log">
+              <div className="log-container">
+                <div className="luk" onClick={emptyArray}>
+                  ✕
+                </div>
+                {displayedLogs.map((log, index) => (
+                  <div className="log" key={index}>
+                    <h2>
+                      {log.project_name}, {log.hours} hrs
+                    </h2>
+                    <p>Note:</p>
+                    <p>{log.notes}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </>
       ) : (
         <NotLoggedIn />
