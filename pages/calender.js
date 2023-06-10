@@ -227,11 +227,13 @@ export default function User(props) {
                 <div className="luk" onClick={emptyArray}>
                   ✕
                 </div>
+                <h1>Logged</h1>
                 {displayedLogs.map((log, index) => (
                   <div className="log" key={index}>
-                    <h2>
+                    <h2>{log.client_name}</h2>
+                    <p>
                       {log.project_name}, {log.hours} hrs
-                    </h2>
+                    </p>
                     <p>Note:</p>
                     <p>{log.notes}</p>
                   </div>
