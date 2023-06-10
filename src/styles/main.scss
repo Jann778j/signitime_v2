@@ -73,14 +73,18 @@ button {
 
   .log-container {
     padding-bottom: 5%;
-    padding-left: 15%;
+    padding-left: 10%;
      padding-top: 2%;
-    padding-right: 15%;
+    padding-right: 10%;
     margin-top: 4%;
    top: 0;
     position: absolute;
     background-color: $color-white;
     z-index: 101;
+
+    [data-theme="dark"] & {
+      background: $color-black;
+    }
     
     
  .luk {
@@ -97,6 +101,11 @@ button {
       @extend %grey-border;
       @extend %padding10;
       margin-bottom: 20px;
+      background-color: $color-grey-light;
+
+      [data-theme="dark"] & {
+      background: $color-grey-dark;
+    }
 
       &:last-child {
         margin-bottom: 0;
