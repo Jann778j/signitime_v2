@@ -43,18 +43,24 @@ export default function User(props) {
 
   const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri"]; // Array med ugedage
 
+  //Parametre fra linje 139-145
   const showLog = (day, weekNumber, project) => {
     return () => {
+      // Laver nyt array, hvor disse betingelsere skal overholdes
+      // Dermed får vi et array, som indeholder de logs, der er indeberettet samme dag og på sammee projekt
       const logs = workingTables.filter(
+        // Vi sammenligner med det oprindelige array
         (log) =>
           log.day === day &&
           log.week === weekNumber &&
           log.project_name == project.project_name
       );
+      //Arrayet lagres i state
       setDisplayedLogs(logs);
     };
   };
 
+  // Når man trykker luk, tømmes array'et igen
   const emptyArray = () => {
     setDisplayedLogs([]);
   };
@@ -220,8 +226,10 @@ export default function User(props) {
             <h1>Here is your weekly overview, {props.user.first_name}</h1>
           </div>
           {renderTables()}
-          {displayedLogs.length > 0 && (
+          {displayedLogs.length > 0 ? (
             <Log emptyArray={emptyArray} displayedLogs={displayedLogs} />
+          ) : (
+            ""
           )}
         </>
       ) : (

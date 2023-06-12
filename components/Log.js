@@ -1,14 +1,22 @@
-import { parseISO } from "date-fns";
+import { format } from "date-fns";
 
 export default function Log(props) {
-  console.log(props.displayedLogs);
+  const date = [...new Set(props.displayedLogs.map((item) => item.created_at))];
+  const parsedDate = format(date[0], "do 'of' MMM");
+
+  console.log(props.displayedLogs.length);
   return (
     <div className="display-log">
       <div className="log-container">
         <div className="luk" onClick={props.emptyArray}>
           ✕
         </div>
-        <h2>Logged</h2>
+        <h2>
+          {props.displayedLogs.length > 1
+            ? `These log were made ${parsedDate}`
+            : `This log was made ${parsedDate}`}
+        </h2>
+        {/* <h2>This log was made {parsedDate}</h2> */}
         {props.displayedLogs.map((log, index) => (
           <div className="log" key={index}>
             <h3>{log.client_name}</h3>
