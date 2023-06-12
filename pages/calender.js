@@ -56,11 +56,9 @@ export default function User(props) {
   };
 
   const emptyArray = () => {
-    console.log("hey");
     setDisplayedLogs([]);
   };
 
-  console.log("Hey", displayedLogs);
   // Find unikke ugenumre baseret på arbejdstabeller. Sorter dem så højeste ugetal kommer først
   const renderTables = () => {
     const weekNumbers = [
