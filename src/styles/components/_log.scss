@@ -1,0 +1,79 @@
+//------------------------------------------------------------------------------
+// LOG
+//------------------------------------------------------------------------------
+
+.display-log {
+  @extend %base-screen-padding;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(121, 121, 121, 0.516);
+  z-index: 100;
+  overflow: scroll;
+
+  .log-container {
+    padding-bottom: 5%;
+    padding-left: 10%;
+    padding-top: 6%;
+    padding-right: 10%;
+    height: 82%;
+    margin-top: 7%;
+    margin-bottom: 7%;
+    top: 0;
+    position: absolute;
+    background-color: $color-white;
+    z-index: 101;
+    width: 60%;
+    overflow: scroll;
+
+    h3,
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    [data-theme="dark"] & {
+      background: $color-black;
+    }
+
+    .luk {
+      text-align: right;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 20px;
+      cursor: pointer;
+    }
+
+    .log {
+      //   @extend %padding10;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: $color-grey-light;
+
+      p:not(.marked) {
+        margin-bottom: 30px;
+
+        &:last-child {
+          margin-bottom: 10px;
+        }
+      }
+
+      .marked {
+        margin-bottom: 10px;
+      }
+
+      [data-theme="dark"] & {
+        background: $color-grey-dark;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

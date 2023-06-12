@@ -12,6 +12,7 @@
 @import "components/loggedin";
 @import "components/submitscreen";
 @import "components/infobox";
+@import "components/log";
 
 // Layout
 @import "layout/forms";
@@ -51,64 +52,3 @@ button {
 }
 
 // log
-
-.display-log {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(121, 121, 121, 0.516);
-  z-index: 100;
-  padding: 20%;
- overflow:scroll;
- height: 100%;
-
-   
-
-
-  
-
-  .log-container {
-    padding-bottom: 5%;
-    padding-left: 10%;
-     padding-top: 2%;
-    padding-right: 10%;
-    margin-top: 4%;
-   top: 0;
-    position: absolute;
-    background-color: $color-white;
-    z-index: 101;
-
-    [data-theme="dark"] & {
-      background: $color-black;
-    }
-    
-    
- .luk {
-      margin-bottom: 50px;
-      text-align: right;
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 10px;
-    
-    }
-  
-    .log {
-      @extend %padding10;
-      margin-bottom: 20px;
-      background-color: $color-grey-light;
-
-      [data-theme="dark"] & {
-      background: $color-grey-dark;
-    }
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-}

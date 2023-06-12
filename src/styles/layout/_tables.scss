@@ -78,6 +78,8 @@ table {
         @media (min-width: 700px) {
           //Hover virker kun fra 700px og op
           &:hover {
+            cursor: pointer;
+
             &::after {
               background-color: #faf8f6;
               content: "";
@@ -95,6 +97,7 @@ table {
       [data-theme="dark"] & {
         @media (min-width: 700px) {
           //Hover virker kun fra 700px og op
+
           td:hover::before {
             background-color: darken($color-grey-dark, 10%);
           }
