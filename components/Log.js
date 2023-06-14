@@ -1,8 +1,9 @@
 import { format } from "date-fns";
 
 export default function Log(props) {
+  // Vi samler dato for hver log som én dato
   const date = [...new Set(props.displayedLogs.map((item) => item.created_at))];
-  const parsedDate = format(date[0], "do 'of' MMM");
+  const parsedDate = format(date[0], "do 'of' MMM"); // Datoen formateres om til "vores" format
 
   return (
     <div className="display-log">
@@ -12,8 +13,10 @@ export default function Log(props) {
         </div>
         <h2>
           {props.displayedLogs.length > 1
-            ? `These logs were made ${parsedDate}`
-            : `This log was made ${parsedDate}`}
+            ? // Hvis der er FLERE log, skal tekstindholdet svare dertil
+              `These logs were made ${parsedDate}`
+            : // Hvis der er ÉN log, skal tekstindholdet svare dertil
+              `This log was made ${parsedDate}`}
         </h2>
         {/* <h2>This log was made {parsedDate}</h2> */}
         {props.displayedLogs.map((log, index) => (
