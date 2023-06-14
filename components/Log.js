@@ -19,8 +19,8 @@ export default function Log(props) {
               `This log was made ${parsedDate}`}
         </h2>
         {/* <h2>This log was made {parsedDate}</h2> */}
-        {props.displayedLogs.map((log, index) => (
-          <div className="log" key={index}>
+        {props.displayedLogs.map((log) => (
+          <div className="log">
             <h3>{log.client_name}</h3>
             <p className="marked">Project:</p>
             <p>
