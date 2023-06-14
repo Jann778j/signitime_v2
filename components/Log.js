@@ -4,7 +4,6 @@ export default function Log(props) {
   const date = [...new Set(props.displayedLogs.map((item) => item.created_at))];
   const parsedDate = format(date[0], "do 'of' MMM");
 
-  console.log(props.displayedLogs.length);
   return (
     <div className="display-log">
       <div className="log-container">
@@ -13,7 +12,7 @@ export default function Log(props) {
         </div>
         <h2>
           {props.displayedLogs.length > 1
-            ? `These log were made ${parsedDate}`
+            ? `These logs were made ${parsedDate}`
             : `This log was made ${parsedDate}`}
         </h2>
         {/* <h2>This log was made {parsedDate}</h2> */}

@@ -79,7 +79,6 @@ export default function User(props) {
       );
 
       const clientData = [];
-
       // Iterer over matchende elementer og organiser dem efter klient og projekt
       // Inden for hver iteration genereres en nøgle ved at kombinere client_id og project_name for det aktuelle element.
       matchingItems.forEach((item) => {

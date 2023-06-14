@@ -88,7 +88,6 @@ export default function LoggedIn(props) {
   };
 
   const day = format(new Date(), "do 'of' MMM"); // Indstiller datoen for dagens velkomstbesked
-
   //Toggle display block on dropdown
   const handleClick = (evt) => {
     evt.target.closest(".dropdown").classList.toggle("display-content");

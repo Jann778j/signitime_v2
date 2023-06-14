@@ -24,8 +24,6 @@ export default function FieldHours(props) {
     }
   };
 
-  console.log(props.hours);
-
   return (
     <div className="hours">
       <div className="title">
